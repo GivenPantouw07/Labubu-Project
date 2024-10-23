@@ -5,5 +5,6 @@ Kelompok Labubu
 <!-- 2. Tangka, Gill Erza -->
 <!-- 3. Pantouw, Given Azarya -->
 <!-- 4. Salindeho, Vallerie Joanna -->
+<!-- 5. Rarentewan, Mayjen -->
 
 
