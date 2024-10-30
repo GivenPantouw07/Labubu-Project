@@ -1,6 +1,7 @@
 import Generations from "./Generations";
 import Logo from "./Logo";
 
+
 const header = ({ text }) => {
   return (
     <>
