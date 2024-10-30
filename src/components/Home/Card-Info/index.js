@@ -2,7 +2,6 @@ import Evolution from './Evolution'
 import TE from './Type-Effect'
 import Logo from './Logo'
 
-
 const ci = ({text,number}) => {
     return (
         <>
