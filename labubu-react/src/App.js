@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <>
-      <Header text="header" />
+      <Header text="header using pull request" />
       <Home />
       <Footer />
     </>
