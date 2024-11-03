@@ -10,8 +10,8 @@ const Generations = () => {
       <p>
         <Gen1 text="adding props Gen1"/>
         <Gen2 text="adding props Gen2"/>
-        <Gen3 />
-        <Gen4 />
+        <Gen3 text="adding props Gen3"/>
+        <Gen4 text="adding props Gen4"/>
       </p>
     </>
   );
