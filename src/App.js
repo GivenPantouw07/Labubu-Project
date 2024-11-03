@@ -7,7 +7,7 @@ const App = () => {
     <>
       <Header text="header using pull request" />
       <Home />
-      <Footer />
+      <Footer text="footer using props" />
     </>
   );
 };
