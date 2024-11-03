@@ -5,6 +5,6 @@ const footer = ({text}) => {
         <p>{`${text}`}</p>
       </>
     );
-}
+};
 
 export default footer;
