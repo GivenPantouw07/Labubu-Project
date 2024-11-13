@@ -6,9 +6,8 @@ const App = () => {
   return (
     <>
       <Header text="header using pull request" />
-      <Header text="testing merge" />
       <Home />
-      <Footer />
+      <Footer text="footer using props" />
     </>
   );
 };
