@@ -94,7 +94,7 @@ const App = () => {
       <div className="owl-carousel">
         <div className="carousel-item">
           <div className="carousel-img">
-            <img src="img/carousel-1.jpg" alt="Image" />
+            <img src="./assets/img/carousel-1.jpg" alt="Image" />
           </div>
           <div className="carousel-text">
             <h3>Washing &amp; Detailing</h3>
@@ -107,7 +107,7 @@ const App = () => {
         </div>
         <div className="carousel-item">
           <div className="carousel-img">
-            <img src="img/carousel-2.jpg" alt="Image" />
+            <img src="./assets/img/carousel-2.jpg" alt="Image" />
           </div>
           <div className="carousel-text">
             <h3>Washing &amp; Detailing</h3>
@@ -120,7 +120,7 @@ const App = () => {
         </div>
         <div className="carousel-item">
           <div className="carousel-img">
-            <img src="img/carousel-3.jpg" alt="Image" />
+            <img src="./assets/img/carousel-3.jpg" alt="Image" />
           </div>
           <div className="carousel-text">
             <h3>Washing &amp; Detailing</h3>
@@ -141,7 +141,7 @@ const App = () => {
       <div className="row align-items-center">
         <div className="col-lg-6">
           <div className="about-img">
-            <img src="img/about.jpg" alt="Image" />
+            <img src="./assets/img/about.jpg" alt="Image" />
           </div>
         </div>
         <div className="col-lg-6">
@@ -436,7 +436,7 @@ const App = () => {
         <div className="col-lg-3 col-md-6">
           <div className="team-item">
             <div className="team-img">
-              <img src="img/team-1.jpg" alt="Team Image" />
+              <img src="./assets/img/team-1.jpg" alt="Team Image" />
             </div>
             <div className="team-text">
               <h2>Donald John</h2>
@@ -453,7 +453,7 @@ const App = () => {
         <div className="col-lg-3 col-md-6">
           <div className="team-item">
             <div className="team-img">
-              <img src="img/team-2.jpg" alt="Team Image" />
+              <img src="./assets/img/team-2.jpg" alt="Team Image" />
             </div>
             <div className="team-text">
               <h2>Adam Phillips</h2>
@@ -470,7 +470,7 @@ const App = () => {
         <div className="col-lg-3 col-md-6">
           <div className="team-item">
             <div className="team-img">
-              <img src="img/team-3.jpg" alt="Team Image" />
+              <img src="./assets/img/team-3.jpg" alt="Team Image" />
             </div>
             <div className="team-text">
               <h2>Thomas Olsen</h2>
@@ -487,7 +487,7 @@ const App = () => {
         <div className="col-lg-3 col-md-6">
           <div className="team-item">
             <div className="team-img">
-              <img src="img/team-4.jpg" alt="Team Image" />
+              <img src="./assets/img/team-4.jpg" alt="Team Image" />
             </div>
             <div className="team-text">
               <h2>James Alien</h2>
@@ -514,7 +514,7 @@ const App = () => {
       </div>
       <div className="owl-carousel testimonials-carousel">
         <div className="testimonial-item">
-          <img src="img/testimonial-1.jpg" alt="Image" />
+          <img src="./assets/img/testimonial-1.jpg" alt="Image" />
           <div className="testimonial-text">
             <h3>Client Name</h3>
             <h4>Profession</h4>
@@ -524,7 +524,7 @@ const App = () => {
           </div>
         </div>
         <div className="testimonial-item">
-          <img src="img/testimonial-2.jpg" alt="Image" />
+          <img src="./assets/img/testimonial-2.jpg" alt="Image" />
           <div className="testimonial-text">
             <h3>Client Name</h3>
             <h4>Profession</h4>
@@ -534,7 +534,7 @@ const App = () => {
           </div>
         </div>
         <div className="testimonial-item">
-          <img src="img/testimonial-3.jpg" alt="Image" />
+          <img src="./assets/img/testimonial-3.jpg" alt="Image" />
           <div className="testimonial-text">
             <h3>Client Name</h3>
             <h4>Profession</h4>
@@ -544,7 +544,7 @@ const App = () => {
           </div>
         </div>
         <div className="testimonial-item">
-          <img src="img/testimonial-4.jpg" alt="Image" />
+          <img src="./assets/img/testimonial-4.jpg" alt="Image" />
           <div className="testimonial-text">
             <h3>Client Name</h3>
             <h4>Profession</h4>
@@ -568,7 +568,7 @@ const App = () => {
         <div className="col-lg-4">
           <div className="blog-item">
             <div className="blog-img">
-              <img src="img/blog-1.jpg" alt="Image" />
+              <img src="./assets/img/blog-1.jpg" alt="Image" />
               <div className="meta-date">
                 <span>01</span>
                 <strong>Jan</strong>
@@ -591,7 +591,7 @@ const App = () => {
         <div className="col-lg-4">
           <div className="blog-item">
             <div className="blog-img">
-              <img src="img/blog-2.jpg" alt="Image" />
+              <img src="./assets/img/blog-2.jpg" alt="Image" />
               <div className="meta-date">
                 <span>01</span>
                 <strong>Jan</strong>
@@ -614,7 +614,7 @@ const App = () => {
         <div className="col-lg-4">
           <div className="blog-item">
             <div className="blog-img">
-              <img src="img/blog-3.jpg" alt="Image" />
+              <img src="./assets/img/blog-3.jpg" alt="Image" />
               <div className="meta-date">
                 <span>01</span>
                 <strong>Jan</strong>
