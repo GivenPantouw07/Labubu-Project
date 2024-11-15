@@ -10,7 +10,7 @@ const home = () => {
             <Ci text="adding props in Card-Info" number={2}/>
         </p>
         </>
-    )
-}
+    );
+};
 
 export default home;

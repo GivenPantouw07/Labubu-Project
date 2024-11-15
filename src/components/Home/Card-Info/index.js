@@ -8,12 +8,12 @@ const ci = ({text,number}) => {
         <h2>Card-Info</h2>
         <h5>{`${text} ${number}`}</h5>
         <p>
-            <Evolution />
-            <TE />
-            <Logo />
+            <Evolution text="adding props to Evolution" number={1}/>
+            <TE text="adding props to Type-Effect" number={2}/>
+            <Logo text="adding props to Logo Card-Info" number={3}/>
         </p>
         </>
-    )
-}
+    );
+};
 
 export default ci;
