@@ -1143,7 +1143,7 @@ const App = () => {
         </div>
         <div className="container copyright">
           <p>
-            © <a href="#">Your Site Name</a>, All Rights Reserved. Designed By{" "}
+            © <a href=" ">Your Site Name</a>, All Rights Reserved. Designed By{" "}
             <a
               href="https://htmlcodex.com"
               target="_blank"
