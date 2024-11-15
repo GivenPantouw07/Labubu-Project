@@ -1,15 +1,13 @@
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
+import React from "react";
+import About from "./components/About";
+import Topbar from "./components/About/Topbar";
 
 const App = () => {
   return (
-    <>
-      <Header text="header using pull request" />
-      <Header text="testing merge" />
-      <Home />
-      <Footer />
-    </>
+    <div>
+      <Topbar />
+      <About />
+    </div>
   );
 };
 
