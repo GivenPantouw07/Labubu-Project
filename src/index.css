@@ -1334,10 +1334,27 @@ a:focus {
 /*******************************/
 /********* Contact CSS *********/
 /*******************************/
-/* Styling untuk row baru */
+.section-header {
+  margin-bottom: 40px; 
+  padding: 20px; 
+}
+
+.section-header h2 {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.section-header p {
+  font-size: 1rem; 
+  margin: 0; 
+  line-height: 1.6; 
+  letter-spacing: normal; 
+  color: #cb2d1f; 
+}
+
+
 .contact .footer-row {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 45px;
   gap: 20px;
@@ -1346,7 +1363,7 @@ a:focus {
 .contact .quick-contact-info {
   display: flex;
   flex-direction: column;
-  flex: 1 1 50%;
+  flex: 1;
   background: #202c45;
   color: #ffffff;
   padding: 20px;
@@ -1354,47 +1371,51 @@ a:focus {
 }
 
 .contact .quick-contact-info h2 {
+  color: #ffffff;
   text-align: center;
   margin-bottom: 20px;
 }
 
-.contact .quick-contact-info .contact-info-item {
-  padding-bottom: 10px; 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.contact .quick-contact-info .contact-info-item:last-child {
-  border-bottom: none; 
-}
-
-
-.contact .quick-contact-info .contact-info-item p {
+.contact .contact-info-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 15px;
 }
-.contact .quick-contact-info .contact-info-item i {
-  margin-left: 10px;
+
+.contact .contact-info-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.contact .contact-info-item i {
+  font-size: 20px;
+  margin-right: 10px;
   color: #ff6f61;
 }
 
-.contact .quick-contact-info .contact-info-item:hover {
-  color: #ff6f61;
-  transition: 0.3s;
+.contact .contact-info-item p {
+  margin: 0;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
+
+.contact .contact-info-item p:hover {
+  color: #ff6f61;
+  transform: scale(1.05);
+}
+
 .contact .social-icons {
-  margin-top: 30px;
-  text-align: center;
-  background: #202c45;
-  padding: 25px 0;
-  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .contact .social-icons a {
-  margin: 0 15px;
   font-size: 30px;
-  background: #ffffff;
   color: #202c45;
+  background: #ffffff;
   width: 50px;
   height: 50px;
   display: inline-flex;
@@ -1403,7 +1424,6 @@ a:focus {
   border-radius: 50%;
   transition: 0.3s;
 }
-
 
 .contact .social-icons a:hover {
   background: #ff6f61;
@@ -1416,6 +1436,7 @@ a:focus {
   height: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 
 

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import Payment from '../Payment';
 import About from '../About';
@@ -43,11 +45,11 @@ const Navbar = () => {
 
             <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
               <div className="navbar-nav mr-auto">
-                <a href="/" className="nav-item nav-link active">Home</a>
-                <a href="/payment" className='nav-item nav-link'>Payment</a>
-                <a href="/about" className="nav-item nav-link">About</a>
-                <a href="/contact" className="nav-item nav-link">Contact</a>
-                <a href="/booking" className="nav-item nav-link">Booking</a>
+                <Link to="/" className="nav-item nav-link active">Home</Link>
+                <Link to="/payment" className='nav-item nav-link'>Payment</Link>
+                <Link to="/about" className="nav-item nav-link">About</Link>
+                <Link to="/contact" className="nav-item nav-link">Contact</Link>
+                <Link to="/booking" className="nav-item nav-link">Booking</Link>
               </div>
             </div>
       </div>

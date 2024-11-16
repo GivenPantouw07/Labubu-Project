@@ -13,13 +13,14 @@ function Contact() {
             </div>
 
             <div className="footer-row">
-
                 <div className="quick-contact-info">
                     <h2>Quick Contact Info</h2>
                     <div className="contact-info-item">
                         <i className="far fa-clock"></i>
-                        <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                        <p>Saturday - Sunday: Closed</p>
+                        <div>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                            <p>Saturday - Sunday: Closed</p>
+                        </div>
                     </div>
                     <div className="contact-info-item">
                         <i className="fa fa-map-marker-alt"></i>
@@ -33,21 +34,22 @@ function Contact() {
                         <i className="far fa-envelope"></i>
                         <p>LabubuCarWash911@gmail.com</p>
                     </div>
-                </div>
 
-                <div className="social-icons">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                        <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                        <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                        <i className="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                        <i className="fab fa-linkedin-in"></i>
-                    </a>
+
+                    <div className="social-icons">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                            <i className="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                            <i className="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <i className="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                            <i className="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <div className="contact-map">
@@ -60,8 +62,6 @@ function Contact() {
                     }}></iframe>
                 </div>
             </div>
-
-            
         </div>
     </div>
 
