@@ -1,16 +1,17 @@
-import { useEffect, useState } from 'react';
-import clsx from 'clsx';
-import { Link } from 'react-router-dom';
 import React from 'react';
-import Payment from '../Payment';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import Home from '../Home';
 import About from '../About';
-import Contact from '../Contact';
 import Booking from '../Booking';
+import Payment from '../Payment';
+import Contact from '../Contact';
 
 
 const Navbar = () => {
   const [blur, setBlur] = useState(false);
-
+  const location = useLocation();
+  
   useEffect(() => {
     function blurHandler() {
       console.log("ScrollY:", window.scrollY);
@@ -45,11 +46,11 @@ const Navbar = () => {
 
             <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
               <div className="navbar-nav mr-auto">
-                <Link to="/" className="nav-item nav-link active">Home</Link>
-                <Link to="/payment" className='nav-item nav-link'>Payment</Link>
-                <Link to="/about" className="nav-item nav-link">About</Link>
-                <Link to="/contact" className="nav-item nav-link">Contact</Link>
-                <Link to="/booking" className="nav-item nav-link">Booking</Link>
+                <Link to="/" className={`nav-item nav-link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
+                <Link to="/about" className={`nav-item nav-link ${location.pathname === '/about' ? 'active' : ''}`}>About</Link>
+                <Link to="/booking" className={`nav-item nav-link ${location.pathname === '/booking' ? 'active' : ''}`}>Booking</Link>
+                <Link to="/payment" className={`nav-item nav-link ${location.pathname === '/payment' ? 'active' : ''}`}>Payment</Link>
+                <Link to="/contact" className={`nav-item nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
               </div>
             </div>
       </div>
