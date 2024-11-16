@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Price = () => {
   return (
@@ -17,7 +18,7 @@ const Price = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="price">
           <div className="container">
             <div className="section-header text-center">
@@ -60,9 +61,9 @@ const Price = () => {
                     </ul>
                   </div>
                   <div className="price-footer">
-                    <a className="btn btn-custom" href>
+                    <Link className="btn btn-custom" to="/booking">
                       Book Now
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -101,9 +102,9 @@ const Price = () => {
                     </ul>
                   </div>
                   <div className="price-footer">
-                    <a className="btn btn-custom" href>
+                    <Link className="btn btn-custom" to="/booking">
                       Book Now
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -142,9 +143,9 @@ const Price = () => {
                     </ul>
                   </div>
                   <div className="price-footer">
-                    <a className="btn btn-custom" href>
+                    <Link className="btn btn-custom" to="/booking">
                       Book Now
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

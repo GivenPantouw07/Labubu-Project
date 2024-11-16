@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Booking() {
   return (
@@ -11,8 +12,8 @@ function Booking() {
               <h2>Booking</h2>
             </div>
             <div className="col-12">
-              <a href>Home</a>
-              <a href>Booking</a>
+              <Link to="/">Home</Link>
+              <Link to="/booking">Booking</Link>
             </div>
           </div>
         </div>
@@ -57,20 +58,12 @@ function Booking() {
                     <input type="email" className="form-control" placeholder="Email" required />
                   </div>
                   <div className="form-group">
-                    <select className="form-control" required>
-                      <option value="">Select Service Type</option>
-                      <option value="basic">Basic Wash</option>
-                      <option value="deluxe">Deluxe Wash</option>
-                      <option value="premium">Premium Wash</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
                     <input type="datetime-local" className="form-control" placeholder="Preferred Time" required />
                   </div>
                   <div className="form-group">
                     <textarea className="form-control" placeholder="Additional Details" rows="3"></textarea>
                   </div>
-                  <button type="submit" className="btn btn-custom">Book Now</button>
+                  <button type="submit" className="btn btn-custom">Pay Now</button>
                 </form>
               </div>
             </div>
