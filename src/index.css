@@ -1356,14 +1356,14 @@ a:focus {
 .contact .footer-row {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   margin-top: 45px;
   gap: 20px;
 }
 
 .contact .quick-contact-info {
-  display: flex;
-  flex-direction: column;
   flex: 1;
+  max-width: 50%;
   background: #202c45;
   color: #ffffff;
   padding: 20px;
@@ -1402,7 +1402,6 @@ a:focus {
 
 .contact .contact-info-item p:hover {
   color: #ff6f61;
-  transform: scale(1.05);
 }
 
 .contact .social-icons {
@@ -1431,9 +1430,11 @@ a:focus {
 }
 
 .contact .contact-map {
-  margin-top: 30px;
+  flex: 1;
+  max-width: 60%;
+  margin-top: 0;
   width: 100%;
-  height: 300px;
+  height: auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
