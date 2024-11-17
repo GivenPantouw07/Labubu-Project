@@ -5,6 +5,7 @@ import About from "./components/About";
 import Service from "./components/Service";
 import Facts from "./components/Facts/indexx";
 import Price from "./components/Price";
+import Booking from "./components/Booking";
 
 const App = () => {
   return (
