@@ -39,12 +39,10 @@ const Navbar = () => {
                 <Link to="/contact" className={`nav-item nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
               </div>
             </div>
-            
-            {/* <div className="navbar-brand logo-no-blur">
-            <h1 className="nav-logo" style={{ color: 'red', fontSize: '24px' }}>
-              Auto<span>Wash</span>
-            </h1>
-          </div> */}
+            <div className="row" 
+            style={{ color : 'red', fontWeight: 'bold',fontStyle: 'italic', fontSize: '25px', margin:'0px' }}>Car</div>
+            <div
+            style={{ color : 'white', fontWeight: 'bold',fontStyle: 'italic', fontSize: '24px' }}>Wash</div> 
         </div>
       </nav>
     </div>
