@@ -30,7 +30,7 @@ function Contact() {
 
             <div className="footer-row">
                 <div className="quick-contact-info">
-                    <h2>Connect with Us</h2>
+                    <h2>Contact Labubu</h2>
                     <div className="contact-info-item">
                         <i className="far fa-clock"></i>
                         <div>
@@ -40,7 +40,7 @@ function Contact() {
                     </div>
                     <div className="contact-info-item">
                         <i className="fa fa-map-marker-alt"></i>
-                        <p>Walian Satu, Kec. Tomohon Sel., Kota Tomohon, Sulawesi Utara</p>
+                        <p>Jalan Sudirman No. 10, Jakarta, Indonesia</p>
                     </div>
                     <div className="contact-info-item">
                         <i className="fa fa-phone-alt"></i>
@@ -48,7 +48,7 @@ function Contact() {
                     </div>
                     <div className="contact-info-item">
                         <i className="far fa-envelope"></i>
-                        <p>AquariusCarWash@gmail.com</p>
+                        <p>labubucarwash@gmail.com</p>
                     </div>
 
 
@@ -71,7 +71,7 @@ function Contact() {
                 <div className="contact-map">
                     <iframe
                     title="Google Maps - Location of Aquarius Car Wash"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7801361951474!2d124.8319288739596!3d1.30709659868049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32876b6418a97771%3A0x112f7e77d65e6c0a!2sAquarius%20Car%20Wash!5e0!3m2!1sid!2sid!4v1731788681399!5m2!1sid!2sid"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.346697258057!2d106.81115107409617!3d-6.217929160899348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f154b5d3a033%3A0x5668a39e64aca18!2sJl.%20Jend.%20Sudirman%20No.10%2C%20RT.14%2FRW.1%2C%20Bend.%20Hilir%2C%20Kecamatan%20Tanah%20Abang%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2010210!5e0!3m2!1sen!2sid!4v1731817470257!5m2!1sen!2sid"
                     frameBorder="0"
                     style={{
                         width: "100%",

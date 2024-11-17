@@ -146,9 +146,11 @@ a:focus {
 /**********************************/
 /********** Top Bar CSS ***********/
 /**********************************/
-.top-bar {
-  position: relative;
-  height: 75px;
+/* .top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
   display: flex;
   align-items: center;
   background: #ffffff;
@@ -159,15 +161,7 @@ a:focus {
   overflow: hidden;
 }
 
-.top-bar .logo h1 {
-  margin: -4px 0 0 0;
-  color: #E81C2E;
-  font-size: 50px;
-  line-height: 50px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  font-style: italic;
-}
+
 
 .top-bar .logo h1 span {
   color: #202C45;
@@ -220,7 +214,7 @@ a:focus {
   .top-bar .logo {
       text-align: center;
   }
-}
+} */
 
 
 /**********************************/
@@ -231,10 +225,17 @@ a:focus {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 9999; 
   transition: all 0.3s ease;
 }
 
+.nav-bar .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px; 
+  background-color: #202C45 !important;
+}
 
 .nav-bar.nav-sticky {
   background-color: rgba(255, 255, 255, 0.1); 
@@ -243,11 +244,6 @@ a:focus {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.nav-bar .navbar {
-  padding: 20px 0;
-  background-color: #202C45 !important;
-  transition: all 0.3s ease;
-}
 
 .nav-bar.nav-sticky .navbar {
   padding: 10px 0;
@@ -255,7 +251,47 @@ a:focus {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-.navbar-dark .navbar-nav .nav-link,
+
+.nav-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #E81C2E;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.nav-logo span {
+  color: #ffffff;
+}
+
+.logo-no-blur {
+  position: relative;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+}
+
+.container.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff;
+  padding: 10px 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #ffffff;
+  padding: 10px 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
@@ -286,28 +322,9 @@ a:focus {
 
 
 
-@media (min-width: 992px) {
-  .nav-bar .navbar-brand {
-      display: none;
-  }
-}
 
-@media (max-width: 991.98px) {
-  .navbar-dark .navbar-nav .nav-link,
-  .navbar-dark .navbar-nav .nav-link:focus,
-  .navbar-dark .navbar-nav .nav-link:hover,
-  .navbar-dark .navbar-nav .nav-link.active {
-      padding: 5px 0;
-  }
   
-  .nav-bar .dropdown-menu {
-      box-shadow: none;
-  }
-  
-  .nav-bar .btn {
-      display: none;
-  }
-}
+
 
 
 /*******************************/
@@ -923,102 +940,41 @@ a:focus {
 
 
 /*******************************/
-/******** Location CSS *********/
+/******** Payment CSS *********/
 /*******************************/
-.location {
-  position: relative;
-  width: 100%;
-  padding: 45px 0;
-}
-
-.location .location-item {
-  display: flex;
+.payment .section-header {
   margin-bottom: 30px;
 }
 
-.location .location-item i {
-  padding-top: 3px;
-  font-size: 30px;
-  color: #E81C2E;
+.payment .payment-item {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.location .location-text {
-  padding-left: 15px;
-}
-
-.location .location-text h3 {
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.location .location-text p {
-  margin-bottom: 5px;
-}
-
-.location .location-text p strong {
-  margin-right: 5px;
-  font-weight: 600;
-}
-
-.location .location-form {
-  padding: 45px 30px;
-  background: #E81C2E;
-  border-radius: 5px;
-}
-
-.location .location-form h3 {
-  color: #ffffff;
-  font-size: 25px;
-  font-weight: 700;
-  margin-bottom: 25px;
-}
-
-.location .location-form .control-group {
+.payment .payment-item i {
+  font-size: 40px;
+  color: #ff6f61;
   margin-bottom: 15px;
 }
 
-.location .location-form .form-control {
-  height: 45px;
-  color: #ffffff;
-  padding: 0 15px;
-  border-radius: 5px;
-  border: 1px solid #ffffff;
-  background: transparent;
+.payment .payment-instructions {
+  margin-top: 40px;
+  text-align: left;
 }
 
-.location .location-form textarea.form-control {
-  height: 120px;
+.payment .bank-details {
+  margin-top: 20px;
   padding: 15px;
+  background: #f1f1f1;
+  border-radius: 5px;
+  text-align: left;
 }
 
-.location .location-form .form-control::placeholder {
-  color: #ffffff;
-  opacity: 1;
-}
 
-.location .location-form .form-control:-ms-input-placeholder,
-.location .location-form .form-control::-ms-input-placeholder {
-  color: #ffffff;
-}
 
-.location .location-form .btn.btn-custom {
-  width: 100%;
-  color: #E81C2E;
-  background: #ffffff;
-  box-shadow: inset 0 0 0 0 #202C45;
-}
-
-.location .location-form .btn.btn-custom:hover {
-  color: #ffffff;
-  background: #E81C2E;
-  box-shadow: inset 400px 0 0 0 #202C45;
-}
-
-@media(min-width: 576px) and (max-width: 991.89px) {
-  .location .location-form .btn.btn-custom:hover {
-      box-shadow: inset 650px 0 0 0 #202C45;
-  }
-}
 
 
 /*******************************/
