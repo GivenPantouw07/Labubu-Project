@@ -8,10 +8,12 @@ import Price from "./components/Price";
 import Payment from "./components/Payment";
 import Contact from "./components/Contact";
 import Booking from "./components/Booking";
+import Footer from "./components/Footer";
 
 const App = () => {
     return (
         <Router>
+            <Topbar />
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />}/>
@@ -20,10 +22,13 @@ const App = () => {
               <Route path="/payment" element={<Payment />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/booking" element={<Booking />} />
-              {/* <Route path="/service" element={<Service />} /> */}
             </Routes>
+            <About />
+            <Service />
+            <Facts />
+            <Price />
+            <Footer />
         </Router>
-
   );
 };
 
