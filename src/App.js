@@ -16,6 +16,7 @@ const App = () => {
       <Service />
       <Facts />
       <Price />
+      <Booking />
       {/* Carousel Start */}
       <div className="carousel">
         <div className="container-fluid">
