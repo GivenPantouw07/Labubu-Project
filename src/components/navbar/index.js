@@ -36,8 +36,11 @@ const Navbar = () => {
               <Link to="/contact" className={`nav-item nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
             </div>
           
-            <div className="row" style={{ color : 'white', fontWeight: 'bold', fontSize: '24px' }}>CARWASH</div>
-          </div>
+            <div className="row" 
+            style={{ color : 'red', fontWeight: 'bold',fontStyle: 'italic', fontSize: '25px', margin:'0px' }}>Car</div>
+            <div
+            style={{ color : 'white', fontWeight: 'bold',fontStyle: 'italic', fontSize: '24px' }}>Wash</div>         
+            </div>
         </div>
       </nav>
     </div>
