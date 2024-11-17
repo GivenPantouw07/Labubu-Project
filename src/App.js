@@ -1,14 +1,11 @@
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
+
+import Price from "./components/Price";
 
 const App = () => {
   return (
     <>
-      <Header text="header using pull request" />
-      <Header text="testing merge" />
-      <Home />
-      <Footer />
+    
+      <Price/>
     </>
   );
 };
