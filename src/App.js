@@ -5,16 +5,13 @@ import About from "./components/About";
 import Service from "./components/Service";
 import Facts from "./components/Facts/indexx";
 import Price from "./components/Price";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <div>
       <Topbar />
       <Navbar />
-      <About />
-      <Service />
-      <Facts />
-      <Price />
       {/* Carousel Start */}
       <div className="carousel">
         <div className="container-fluid">
@@ -86,6 +83,11 @@ const App = () => {
         </div>
       </div>
       {/* Carousel End */}
+      <About />
+      <Service />
+      <Facts />
+      <Price />
+      <Footer />
     </div>
   );
 };
