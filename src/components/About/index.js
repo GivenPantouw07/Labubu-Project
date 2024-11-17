@@ -7,7 +7,7 @@ const About = () => {
         <div className="row align-items-center">
           <div className="col-lg-6">
             <div className="about-img">
-              <img src={AboutImg} alt=""/>
+              <img src={AboutImg} alt="" />
             </div>
           </div>
           <div className="col-lg-6">
@@ -17,10 +17,14 @@ const About = () => {
             </div>
             <div className="about-content">
               <p>
-                Lorem ipsum dolor sit amet elit. In vitae turpis. Donec in
-                hendre dui, vel blandit massa. Ut vestibu suscipi cursus. Cras
-                quis porta nulla, ut placerat risus. Aliquam nec magna eget
-                velit luctus dictum
+                services are essential to maintaining the appearance and
+                longevity of your vehicle. These services include thorough
+                exterior cleaning, interior vacuuming, waxing, polishing, and
+                restoring the car to a near showroom finish. Whether it’s
+                removing stubborn dirt or enhancing the paint’s shine,
+                professional detailing ensures your vehicle looks and feels
+                brand new. Keep your car in top condition with regular washing
+                and detailing tailored to your needs. 
               </p>
               <ul>
                 <li>
@@ -40,9 +44,6 @@ const About = () => {
                   Window wiping
                 </li>
               </ul>
-              <a className="btn btn-custom" href>
-                Learn More
-              </a>
             </div>
           </div>
         </div>
