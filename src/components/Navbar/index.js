@@ -39,6 +39,7 @@ const Navbar = () => {
                 <Link to="/contact" className={`nav-item nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
               </div>
             </div>
+            
             {/* <div className="navbar-brand logo-no-blur">
             <h1 className="nav-logo" style={{ color: 'red', fontSize: '24px' }}>
               Auto<span>Wash</span>

@@ -229,13 +229,6 @@ a:focus {
   transition: all 0.3s ease;
 }
 
-.nav-bar .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px; 
-  background-color: #202C45 !important;
-}
 
 .nav-bar.nav-sticky {
   background-color: rgba(255, 255, 255, 0.1); 
@@ -252,30 +245,6 @@ a:focus {
   -webkit-backdrop-filter: blur(10px);
 }
 
-.nav-logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #E81C2E;
-  font-style: italic;
-  letter-spacing: 1px;
-}
-
-.nav-logo span {
-  color: #ffffff;
-}
-
-.logo-no-blur {
-  position: relative;
-  z-index: 1050;
-  display: flex;
-  align-items: center;
-}
-
-.container.d-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .navbar-nav .nav-link {
   color: #ffffff;
@@ -307,18 +276,6 @@ a:focus {
   color: #E81C2E;
 }
 
-.nav-bar .btn.btn-custom {
-  color: #202C45;
-  background: #ffffff;
-  box-shadow: inset 0 0 0 0 #E81C2E;
-  transition: all 0.3s ease;
-}
-
-.nav-bar .btn:hover {
-  color: #ffffff;
-  background: #E81C2E;
-  box-shadow: inset 200px 0 0 0 #E81C2E;
-}
 
 
 
