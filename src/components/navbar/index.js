@@ -1,7 +1,5 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
 
 const Navbar = () => {
   const [blur, setBlur] = useState(false);
@@ -26,25 +24,23 @@ const Navbar = () => {
 
   return (
     <div className={`nav-bar ${blur ? 'nav-sticky' : ''}`}>
-      <nav className={`navbar  navbar-expand-lg navbar-dark ${blur ? 'navbar-blur' : ""}`}>
-
+      <nav className={`navbar navbar-expand-lg navbar-dark ${blur ? 'navbar-blur' : ""}`}>
         <div className="container">
-
-            <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-              <div className="navbar-nav mr-auto">
-                <Link to="/" className={`nav-item nav-link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
-                <Link to="/price" className={`nav-item nav-link ${location.pathname === '/price' ? 'active' : ''}`}>Price</Link>
-                <Link to="/booking" className={`nav-item nav-link ${location.pathname === '/booking' ? 'active' : ''}`}>Booking</Link>
-                <Link to="/payment" className={`nav-item nav-link ${location.pathname === '/payment' ? 'active' : ''}`}>Payment</Link>
-                <Link to="/about" className={`nav-item nav-link ${location.pathname === '/about' ? 'active' : ''}`}>About</Link>
-                <Link to="/contact" className={`nav-item nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
-                <Link to="/contact" className={`nav-item nav-link ${location.pathname === '/carwash' ? 'active' : ''}`}>carwash</Link>
-              </div>
+          <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div className="navbar-nav mr-auto">
+              <Link to="/" className={`nav-item nav-link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
+              <Link to="/price" className={`nav-item nav-link ${location.pathname === '/price' ? 'active' : ''}`}>Price</Link>
+              <Link to="/booking" className={`nav-item nav-link ${location.pathname === '/booking' ? 'active' : ''}`}>Booking</Link>
+              <Link to="/payment" className={`nav-item nav-link ${location.pathname === '/payment' ? 'active' : ''}`}>Payment</Link>
+              <Link to="/about" className={`nav-item nav-link ${location.pathname === '/about' ? 'active' : ''}`}>About</Link>
+              <Link to="/contact" className={`nav-item nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
             </div>
-      </div>
-    </nav>
-  </div>
-
+          
+            <div className="row" style={{ color : 'white', fontWeight: 'bold', fontSize: '24px' }}>CARWASH</div>
+          </div>
+        </div>
+      </nav>
+    </div>
   );
 };
 
