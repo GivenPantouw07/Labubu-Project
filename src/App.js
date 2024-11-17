@@ -9,8 +9,6 @@ import Payment from "./components/Payment";
 import Contact from "./components/Contact";
 import Booking from "./components/Booking";
 
-import Price from "./components/Price";
-
 const App = () => {
   return (
     <div>
@@ -26,10 +24,6 @@ const App = () => {
         </Routes>
       </Router>
     </div>
-    <>
-    
-      <Price/>
-    </>
   );
 };
 
