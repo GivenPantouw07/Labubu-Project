@@ -1,7 +1,12 @@
 import React from "react";
 import AboutImg from "../../assets/img/about.jpg";
+import { Link } from "react-router-dom";
+import Service from "../Service";
+import Facts from "../Facts";
+import Price from "../Price";
 import Footer from "../Footer";
-const About = () => {
+
+const Home = () => {
   return (
     <div>
       <div className="about">
@@ -18,16 +23,12 @@ const About = () => {
                 <h2>car washing and detailing</h2>
               </div>
               <div className="about-content">
-               <p>
-                Services are essential to maintaining the appearance and
-                longevity of your vehicle. These services include thorough
-                exterior cleaning, interior vacuuming, waxing, polishing, and
-                restoring the car to a near showroom finish. Whether it’s
-                removing stubborn dirt or enhancing the paint’s shine,
-                professional detailing ensures your vehicle looks and feels
-                brand new. Keep your car in top condition with regular washing
-                and detailing tailored to your needs. 
-               </p>
+                <p>
+                  Lorem ipsum dolor sit amet elit. In vitae turpis. Donec in
+                  hendre dui, vel blandit massa. Ut vestibu suscipi cursus. Cras
+                  quis porta nulla, ut placerat risus. Aliquam nec magna eget
+                  velit luctus dictum
+                </p>
                 <ul>
                   <li>
                     <i className="far fa-check-circle" />
@@ -46,14 +47,20 @@ const About = () => {
                     Window wiping
                   </li>
                 </ul>
+                <Link className="btn btn-custom" to="/about">
+                  Learn More
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Service />
+      <Facts />
+      <Price />
       <Footer />
     </div>
   );
 };
 
-export default About;
+export default Home;
