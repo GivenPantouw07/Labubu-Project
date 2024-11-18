@@ -76,41 +76,6 @@ const Footer = () => {
               <a href="/pricing-plan">Pricing Plan</a>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
-            <div className="footer-link">
-              <h2>Useful Links</h2>
-              <a href="/terms-of-use">Terms of Use</a>
-              <a href="/privacy-policy">Privacy Policy</a>
-              <a href="/cookies">Cookies</a>
-              <a href="/help">Help</a>
-              <a href="/faqs">FAQs</a>
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-6">
-            <div className="footer-newsletter">
-              <h2>Newsletter</h2>
-              <form>
-                <label htmlFor="full-name">Full Name</label>
-                <input
-                  className="form-control"
-                  id="full-name"
-                  placeholder="Full Name"
-                  required
-                />
-                <label htmlFor="email">Email</label>
-                <input
-                  className="form-control"
-                  id="email"
-                  type="email"
-                  placeholder="Email"
-                  required
-                />
-                <button className="btn btn-custom" type="submit">
-                  Submit
-                </button>
-              </form>
-            </div>
-          </div>
         </div>
       </div>
       <div className="container copyright">
