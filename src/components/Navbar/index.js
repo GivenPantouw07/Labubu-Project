@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const Navbar = () => {
   const [blur, setBlur] = useState(false);
@@ -20,6 +21,16 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", blurHandler);
     };
+  }, []);
+
+  const [navbar, setNavbar] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const navbarRef = ref(db, "navbar");
+    onValue(navbarRef, (snapshot) => {
+      const data = snapshot.val();
+      setNavbar(data);
+    });
   }, []);
 
   return (
@@ -45,7 +56,7 @@ const Navbar = () => {
                     location.pathname === "/" ? "active" : ""
                   }`}
                 >
-                  Home
+                  {navbar.Text1}
                 </Link>
                 <Link
                   to="/about"
@@ -53,7 +64,7 @@ const Navbar = () => {
                     location.pathname === "/about" ? "active" : ""
                   }`}
                 >
-                  About
+                  {navbar.Text2}
                 </Link>
                 <Link
                   to="/price"
@@ -61,7 +72,7 @@ const Navbar = () => {
                     location.pathname === "/price" ? "active" : ""
                   }`}
                 >
-                  Price
+                  {navbar.Text3}
                 </Link>
                 <Link
                   to="/booking"
@@ -69,7 +80,7 @@ const Navbar = () => {
                     location.pathname === "/booking" ? "active" : ""
                   }`}
                 >
-                  Booking
+                  {navbar.Text4}
                 </Link>
                 <Link
                   to="/payment"
@@ -77,7 +88,7 @@ const Navbar = () => {
                     location.pathname === "/payment" ? "active" : ""
                   }`}
                 >
-                  Payment
+                  {navbar.Text5}
                 </Link>
                 <Link
                   to="/contact"
@@ -85,7 +96,7 @@ const Navbar = () => {
                     location.pathname === "/contact" ? "active" : ""
                   }`}
                 >
-                  Contact
+                  {navbar.Text6}
                 </Link>
               </div>
             </div>
@@ -100,7 +111,7 @@ const Navbar = () => {
                 margin: "0px",
               }}
             >
-              Car
+              {navbar.Title_1}
             </div>
             <div
               style={{
@@ -110,7 +121,7 @@ const Navbar = () => {
                 fontSize: "38px",
               }}
             >
-              Wash
+              {navbar.Title_2}
             </div>
           </div>
         </div>
