@@ -1111,7 +1111,6 @@ a:focus {
   gap: 20px;
 }
 
-
 /*******************************/
 /******* Testimonial CSS *******/
 /*******************************/
@@ -1927,6 +1926,11 @@ a:focus {
   margin-top: 45px;
   padding-top: 90px;
   background: #202c45;
+}
+
+.footer .container {
+  justify-content: space-between;
+  
 }
 
 .footer .footer-contact,

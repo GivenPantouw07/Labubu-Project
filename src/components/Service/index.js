@@ -1,4 +1,5 @@
 import React from "react";
+
 const Service = () => {
   return (
     <div className="service">
@@ -20,7 +21,7 @@ const Service = () => {
           </div>
           <div className="col-lg-3 col-md-6">
             <div className="service-item">
-              <i className="flaticon-car-wash" />
+            <i className="flaticon-car-wash"></i>
               <h3>Interior Washing</h3>
               <p>
                 Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare

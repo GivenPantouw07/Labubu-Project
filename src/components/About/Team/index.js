@@ -1,11 +1,20 @@
-import React from "react";
-import Team1 from "../../../assets/img/ivo.jpg";
 import Team2 from "../../../assets/img/given.jpeg";
-import Team3 from "../../../assets/img/team-3.jpg";
+import Team3 from "../../../assets/img/mayjen.jpg";
 import Team4 from "../../../assets/img/elsha.jpeg";
-import Team5 from "../../../assets/img/team-1.jpg";
+import Team5 from "../../../assets/img/team-4.jpg";
+import { getDatabase, ref, onValue } from "firebase/database";
+import React, { useState, useEffect } from "react";
 
 const Team = () => {
+  const [team, setTeam] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const teamRef = ref(db, "team");
+    onValue(teamRef, (snapshot) => {
+      const data = snapshot.val();
+      setTeam(data);
+    });
+  }, []);
   return (
     <div className="team">
       <div className="container">
@@ -17,7 +26,10 @@ const Team = () => {
           <div className="col-lg-3 col-md-6">
             <div className="team-item">
               <div className="team-img">
-                <img src={Team1} alt="Donald John, Engineer" />{" "}
+                <img
+                  src={`data:image/jpg;base64,${team.team1}`}
+                  alt="Donald John, Engineer"
+                />{" "}
                 {/* Descriptive alt attribute */}
               </div>
               <div className="team-text">
@@ -105,7 +117,7 @@ const Team = () => {
                 {/* Descriptive alt attribute */}
               </div>
               <div className="team-text">
-                <h2>Mayjen Rarentewan</h2>
+                <h2>Mayjen Mclearen Putra Rarentewan</h2>
                 <p>Worker</p>
                 <div className="team-social">
                   <a
