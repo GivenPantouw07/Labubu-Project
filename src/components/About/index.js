@@ -21,33 +21,33 @@ const About = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
-              <div className="about-img">              
+              <div className="about-img">
                 <img src={`data:image/jpg;base64,${about.img1}`} />
               </div>
             </div>
             <div className="col-lg-6">
               <div className="section-header text-left">
-                <p>About Us</p>
-                <h2>car washing and detailing</h2>
+                <p>{about.miniTitle}</p>
+                <h2>{about.Title}</h2>
               </div>
               <div className="about-content">
                 <p>{about.Paragraph}</p>
                 <ul>
                   <li>
                     <i className="far fa-check-circle" />
-                    Seats washing
+                    {about.subTitle1}
                   </li>
                   <li>
                     <i className="far fa-check-circle" />
-                    Vacuum cleaning
+                    {about.subTitle2}
                   </li>
                   <li>
                     <i className="far fa-check-circle" />
-                    Interior wet cleaning
+                    {about.subTitle3}
                   </li>
                   <li>
                     <i className="far fa-check-circle" />
-                    Window wiping
+                    {about.subTitle4}
                   </li>
                 </ul>
               </div>
