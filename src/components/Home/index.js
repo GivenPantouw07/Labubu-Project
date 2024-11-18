@@ -1,4 +1,3 @@
-import AboutImg from "../../assets/img/about.jpg";
 import { Link } from "react-router-dom";
 import Service from "../Service";
 import Facts from "../Facts";
