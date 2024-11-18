@@ -49,8 +49,6 @@ const Booking = () => {
         </div>
       </div>
 
-
-
       {/* Location Section */}
       <div className="location">
         <div className="container">
@@ -110,6 +108,5 @@ const Booking = () => {
       </div>
     </div>
   );
-}
-
+};
 export default Booking;

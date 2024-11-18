@@ -18,16 +18,16 @@ const About = () => {
                 <h2>car washing and detailing</h2>
               </div>
               <div className="about-content">
-                <p>
-                  services are essential to maintaining the appearance and
-                  longevity of your vehicle. These services include thorough
-                  exterior cleaning, interior vacuuming, waxing, polishing, and
-                  restoring the car to a near showroom finish. Whether it’s
-                  removing stubborn dirt or enhancing the paint’s shine,
-                  professional detailing ensures your vehicle looks and feels
-                  brand new. Keep your car in top condition with regular washing
-                  and detailing tailored to your needs.
-                </p>
+               <p>
+                Services are essential to maintaining the appearance and
+                longevity of your vehicle. These services include thorough
+                exterior cleaning, interior vacuuming, waxing, polishing, and
+                restoring the car to a near showroom finish. Whether it’s
+                removing stubborn dirt or enhancing the paint’s shine,
+                professional detailing ensures your vehicle looks and feels
+                brand new. Keep your car in top condition with regular washing
+                and detailing tailored to your needs. 
+               </p>
                 <ul>
                   <li>
                     <i className="far fa-check-circle" />
@@ -51,7 +51,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );
