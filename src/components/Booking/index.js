@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getDatabase, ref, set} from "firebase/database";
 
 const Booking = () => {
   const Navigate = useNavigate();
   const [selectedDateTime, setSelectedDateTime] = useState("");
   const [error, setError] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [additionalDetails, setAdditionalDetails] = useState("");
 
   const locations = [
     {
@@ -29,6 +33,16 @@ const Booking = () => {
     },
   ];
 
+  const writeBookingData = (userId, name, email, dateTime, details) => {
+    const db = getDatabase();
+    set(ref(db, "bookings/" + userId), {
+      username: name,
+      email: email,
+      bookingTime: dateTime,
+      additionalDetails: details,
+    });
+  };
+
   const handlePayNow = (event) => {
     event.preventDefault();
 
@@ -48,6 +62,10 @@ const Booking = () => {
     }
 
     setError("");
+
+    const userId = Math.random().toString(36).substring(2, 15);
+    writeBookingData(userId, name, email, selectedDateTime, additionalDetails);
+
     Navigate("/payment");
   };
   return (

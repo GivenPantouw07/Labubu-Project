@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Contact() {
   return (
@@ -11,8 +12,8 @@ function Contact() {
                     <h2>Contact Us</h2>
                 </div>
                 <div className="col-12">
-                    <a href="/">Home</a>
-                    <a href="/contact">Contact</a>
+                    <Link to="/">Home</Link>
+                    <Link to="/contact">Contact</Link>
                 </div>
                 </div>
             </div>

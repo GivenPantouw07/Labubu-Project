@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import AboutImg from "../../assets/img/about.jpg";
 import Team from "./Team";
 import Footer from "../Footer";
@@ -7,6 +8,21 @@ const About = () => {
   return (
     <div>
       <div className="about">
+        <div className="page-header">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <h2>About Us</h2>
+              </div>
+              <div className="col-12">
+                <Link to="/">Home</Link>
+                <Link to="/about">About Us</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">

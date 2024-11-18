@@ -708,7 +708,7 @@ a:focus {
   font-size: 60px;
   line-height: 60px;
   background-image: linear-gradient(#E81C2E, #202C45);
-  /* -webkit-background-clip: text; */
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: .5s;
 }

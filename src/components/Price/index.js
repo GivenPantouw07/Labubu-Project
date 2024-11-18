@@ -45,7 +45,7 @@ const Price = () => {
                   <i className="fas fa-arrow-down fa-2x"></i>
                 </div>
                 <div className="price-body">
-                  <Link className="btn btn-custom btn-large" to="/details/basic">
+                  <Link className="btn btn-custom btn-large" to="/booking">
                     <div>
                       <h4>Details</h4>
                       <p>
@@ -73,7 +73,7 @@ const Price = () => {
                   <i className="fas fa-arrow-down fa-2x"></i>
                 </div>
                 <div className="price-body">
-                  <Link className="btn btn-custom btn-large" to="/details/premium">
+                  <Link className="btn btn-custom btn-large" to="/booking">
                     <div>
                       <h4>Details</h4>
                       <p>
@@ -101,7 +101,7 @@ const Price = () => {
                   <i className="fas fa-arrow-down fa-2x"></i>
                 </div>
                 <div className="price-body">
-                  <Link className="btn btn-custom btn-large" to="/details/complex">
+                  <Link className="btn btn-custom btn-large" to="/booking">
                     <div>
                       <h4>Details</h4>
                       <p>
