@@ -1,28 +1,29 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Topbar from "./components/Topbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./index.css";
 import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 import About from "./components/About";
-import Service from "./components/Service";
-import Facts from "./components/Facts/indexx";
 import Price from "./components/Price";
+import Payment from "./components/Payment";
+import Contact from "./components/Contact";
 import Booking from "./components/Booking";
 
 const App = () => {
   return (
-    <Router>
-      <div>
-        <Topbar />
+    <div>
+      <Router>
         <Navbar />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/service" element={<Service />} />
-          <Route path="/facts" element={<Facts />} />
           <Route path="/price" element={<Price />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Booking />} />
         </Routes>
-      </div>
       </Router>
+    </div>
   );
 };
 

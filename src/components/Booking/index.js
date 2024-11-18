@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Booking() {
+const Booking = () => {
   const Navigate = useNavigate(); 
   const [selectedDateTime, setSelectedDateTime] = useState('');
   const [error, setError] = useState('');

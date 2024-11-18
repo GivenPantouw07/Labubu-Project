@@ -146,9 +146,11 @@ a:focus {
 /**********************************/
 /********** Top Bar CSS ***********/
 /**********************************/
-.top-bar {
-  position: relative;
-  height: 75px;
+/* .top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
   display: flex;
   align-items: center;
   background: #ffffff;
@@ -159,15 +161,7 @@ a:focus {
   overflow: hidden;
 }
 
-.top-bar .logo h1 {
-  margin: -4px 0 0 0;
-  color: #E81C2E;
-  font-size: 50px;
-  line-height: 50px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  font-style: italic;
-}
+
 
 .top-bar .logo h1 span {
   color: #202C45;
@@ -220,37 +214,53 @@ a:focus {
   .top-bar .logo {
       text-align: center;
   }
-}
+} */
 
 
 /**********************************/
 /*********** Nav Bar CSS **********/
 /**********************************/
 .nav-bar {
-  position: relative;
-  background: #202C45;
-}
-
-.nav-bar.nav-sticky {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
-  z-index: 999;
+  z-index: 9999; 
+  transition: all 0.3s ease;
 }
 
-.nav-bar .navbar {
-  padding: 20px 0;
-  background: #202C45 !important;
-  transition: .3s;
+
+.nav-bar.nav-sticky {
+  background-color: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
+
 
 .nav-bar.nav-sticky .navbar {
-  padding: 5px 0;
+  padding: 10px 0;
+  background-color: rgba(32, 44, 69, 0.8) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.navbar-dark .navbar-nav .nav-link,
+
+.navbar-nav .nav-link {
+  color: #ffffff;
+  padding: 10px 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #ffffff;
+  padding: 10px 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
@@ -258,6 +268,7 @@ a:focus {
   padding: 15px;
   font-weight: 500;
   letter-spacing: 1px;
+  transition: color 0.3s ease;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
@@ -265,47 +276,12 @@ a:focus {
   color: #E81C2E;
 }
 
-.nav-bar .dropdown-menu {
-  margin-top: 0;
-  border: 0;
-  border-radius: 0;
-  background: #f8f9fa;
-}
 
-.nav-bar .btn.btn-custom {
-  color: #202C45;
-  background: #ffffff;
-  box-shadow: inset 0 0 0 0 #E81C2E;
-}
 
-.nav-bar .btn:hover {
-  color: #ffffff;
-  background: #E81C2E;
-  box-shadow: inset 200px 0 0 0 #E81C2E;
-}
 
-@media (min-width: 992px) {
-  .nav-bar .navbar-brand {
-      display: none;
-  }
-}
 
-@media (max-width: 991.98px) {
-  .navbar-dark .navbar-nav .nav-link,
-  .navbar-dark .navbar-nav .nav-link:focus,
-  .navbar-dark .navbar-nav .nav-link:hover,
-  .navbar-dark .navbar-nav .nav-link.active {
-      padding: 5px 0;
-  }
   
-  .nav-bar .dropdown-menu {
-      box-shadow: none;
-  }
-  
-  .nav-bar .btn {
-      display: none;
-  }
-}
+
 
 
 /*******************************/
@@ -921,102 +897,41 @@ a:focus {
 
 
 /*******************************/
-/******** Location CSS *********/
+/******** Payment CSS *********/
 /*******************************/
-.location {
-  position: relative;
-  width: 100%;
-  padding: 45px 0;
-}
-
-.location .location-item {
-  display: flex;
+.payment .section-header {
   margin-bottom: 30px;
 }
 
-.location .location-item i {
-  padding-top: 3px;
-  font-size: 30px;
-  color: #E81C2E;
+.payment .payment-item {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.location .location-text {
-  padding-left: 15px;
-}
-
-.location .location-text h3 {
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.location .location-text p {
-  margin-bottom: 5px;
-}
-
-.location .location-text p strong {
-  margin-right: 5px;
-  font-weight: 600;
-}
-
-.location .location-form {
-  padding: 45px 30px;
-  background: #E81C2E;
-  border-radius: 5px;
-}
-
-.location .location-form h3 {
-  color: #ffffff;
-  font-size: 25px;
-  font-weight: 700;
-  margin-bottom: 25px;
-}
-
-.location .location-form .control-group {
+.payment .payment-item i {
+  font-size: 40px;
+  color: #ff6f61;
   margin-bottom: 15px;
 }
 
-.location .location-form .form-control {
-  height: 45px;
-  color: #ffffff;
-  padding: 0 15px;
-  border-radius: 5px;
-  border: 1px solid #ffffff;
-  background: transparent;
+.payment .payment-instructions {
+  margin-top: 40px;
+  text-align: left;
 }
 
-.location .location-form textarea.form-control {
-  height: 120px;
+.payment .bank-details {
+  margin-top: 20px;
   padding: 15px;
+  background: #f1f1f1;
+  border-radius: 5px;
+  text-align: left;
 }
 
-.location .location-form .form-control::placeholder {
-  color: #ffffff;
-  opacity: 1;
-}
 
-.location .location-form .form-control:-ms-input-placeholder,
-.location .location-form .form-control::-ms-input-placeholder {
-  color: #ffffff;
-}
 
-.location .location-form .btn.btn-custom {
-  width: 100%;
-  color: #E81C2E;
-  background: #ffffff;
-  box-shadow: inset 0 0 0 0 #202C45;
-}
-
-.location .location-form .btn.btn-custom:hover {
-  color: #ffffff;
-  background: #E81C2E;
-  box-shadow: inset 400px 0 0 0 #202C45;
-}
-
-@media(min-width: 576px) and (max-width: 991.89px) {
-  .location .location-form .btn.btn-custom:hover {
-      box-shadow: inset 650px 0 0 0 #202C45;
-  }
-}
 
 
 
@@ -1333,100 +1248,116 @@ a:focus {
 /*******************************/
 /********* Contact CSS *********/
 /*******************************/
-.contact {
-  position: relative;
-  width: 100%;
-  padding: 45px 0;
+.section-header {
+  margin-bottom: 40px; 
+  padding: 20px; 
 }
 
-.contact .contact-info {
-  width: 100%;
-  margin-bottom: 45px;
-  padding: 35px 30px 10px 30px;
-  border-radius: 5px;
-  background: #202C45;
-  
+.section-header h2 {
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 
-.contact .contact-info h2 {
+.section-header p {
+  font-size: 1rem; 
+  margin: 0; 
+  line-height: 1.6; 
+  letter-spacing: normal; 
+  color: #cb2d1f; 
+}
+
+
+.contact .footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 45px;
+  gap: 20px;
+}
+
+.contact .quick-contact-info {
+  flex: 1;
+  max-width: 50%;
+  background: #202c45;
   color: #ffffff;
-  font-size: 25px;
-  font-weight: 700;
-  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.contact .quick-contact-info h2 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .contact .contact-info-item {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 30px;
+  justify-content: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 15px;
 }
 
-.contact .contact-info-icon {
+.contact .contact-info-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.contact .contact-info-item i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #ff6f61;
+}
+
+.contact .contact-info-item p {
+  margin: 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact .contact-info-item p:hover {
+  color: #ff6f61;
+}
+
+.contact .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact .social-icons a {
+  font-size: 30px;
+  color: #202c45;
+  background: #ffffff;
   width: 50px;
   height: 50px;
-  display: flex;
-  align-items: center;
+  display: inline-flex;
   justify-content: center;
-  background: #ffffff;
-  border-radius: 50px;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.3s;
 }
 
-.contact .contact-info-icon i {
-  margin: 0;
-  color: #202C45;
-  font-size: 16px;
-}
-
-.contact .contact-info-text {
-  padding-left: 20px;
-}
-
-.contact .contact-info-text h3 {
-  margin: 0 0 5px 0;
+.contact .social-icons a:hover {
+  background: #ff6f61;
   color: #ffffff;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 1px;
 }
 
-.contact .contact-info-text p {
-  margin: 0;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.contact .contact-form {
-  position: relative;
+.contact .contact-map {
+  flex: 1;
+  max-width: 60%;
+  margin-top: 0;
   width: 100%;
-  margin-bottom: 45px;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.contact .contact-form input {
-  padding: 15px;
-  border-radius: 5px;
-  border: 1px solid #202C45;
-}
 
-.contact .contact-form textarea {
-  height: 125px;
-  padding: 8px 15px;
-  border-radius: 5px;
-  border: 1px solid #202C45;
-}
 
-.contact .help-block ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
 
-.contact iframe {
-  width: 100%;
-  height: 400px;
-  border-radius: 5px;
-}
+
+
+
 
 
 /*******************************/
@@ -1738,6 +1669,8 @@ a:focus {
 .single .comment-form .btn {
   border-radius: 45px;
 }
+
+
 
 
 /**********************************/
