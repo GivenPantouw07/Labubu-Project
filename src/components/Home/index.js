@@ -1,13 +1,25 @@
-import React from "react";
 import AboutImg from "../../assets/img/about.jpg";
 import { Link } from "react-router-dom";
 import Service from "../Service";
 import Facts from "../Facts";
 import Footer from "../Footer";
+import { getDatabase, ref, onValue } from "firebase/database";
+import React, { useState, useEffect } from "react";
 
 const Home = () => {
+  const [home, setHome] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const homeRef = ref(db, "home");
+    onValue(homeRef, (snapshot) => {
+      const data = snapshot.val();
+      setHome(data);
+    });
+  }, []);
   return (
     <div>
+      <div className="carousel"></div>
+
       <div className="about">
         <div className="container">
           <div className="row align-items-center">
