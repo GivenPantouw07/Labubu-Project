@@ -1,30 +1,29 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, About, Price, Payment, Contact, Booking, Navbar } from "./components";
-import './index.css';
-
+import "./index.css";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import About from "./components/About";
+import Price from "./components/Price";
+import Payment from "./components/Payment";
+import Contact from "./components/Contact";
+import Booking from "./components/Booking";
 
 const App = () => {
-  const RoutesConfig = [
-    { path: "/", component: Home },
-    { path: "/about", component: About },
-    { path: "/price", component: Price },
-    { path: "/payment", component: Payment },
-    { path: "/contact", component: Contact },
-    { path: "/booking", component: Booking },
-  ];
-  const renderRoutes = () =>
-    RoutesConfig.map(({ path, component: Component }, index) => (
-      <Route key={index} path={path} element={<Component />} />
-    ));
-    return (
+  return (
+    <div>
       <Router>
         <Navbar />
-      <Routes>
-        {renderRoutes()}
-      </Routes>
-    </Router>
-
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/price" element={<Price />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/booking" element={<Booking />} />
+        </Routes>
+      </Router>
+    </div>
   );
 };
 
