@@ -1,7 +1,20 @@
-import React from "react";
-import AboutImg from "../../assets/img/about.jpg";
+/* eslint-disable jsx-a11y/alt-text */
+import Team from "./Team";
 import Footer from "../Footer";
+import { getDatabase, ref, onValue } from "firebase/database";
+import React, { useState, useEffect } from "react";
+
 const About = () => {
+  const [about, setAbout] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const aboutRef = ref(db, "about");
+    onValue(aboutRef, (snapshot) => {
+      const data = snapshot.val();
+      setAbout(data);
+    });
+  }, []);
+
   return (
     <div>
       <div className="about">
@@ -9,41 +22,32 @@ const About = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="about-img">
-                <img src={AboutImg} alt="" />
+                <img src={`data:image/jpg;base64,${about.img1}`} />
               </div>
             </div>
             <div className="col-lg-6">
               <div className="section-header text-left">
-                <p>About Us</p>
-                <h2>car washing and detailing</h2>
+                <p>{about.miniTitle}</p>
+                <h2>{about.Title}</h2>
               </div>
               <div className="about-content">
-               <p>
-                Services are essential to maintaining the appearance and
-                longevity of your vehicle. These services include thorough
-                exterior cleaning, interior vacuuming, waxing, polishing, and
-                restoring the car to a near showroom finish. Whether it’s
-                removing stubborn dirt or enhancing the paint’s shine,
-                professional detailing ensures your vehicle looks and feels
-                brand new. Keep your car in top condition with regular washing
-                and detailing tailored to your needs. 
-               </p>
+                <p>{about.Paragraph}</p>
                 <ul>
                   <li>
                     <i className="far fa-check-circle" />
-                    Seats washing
+                    {about.subTitle1}
                   </li>
                   <li>
                     <i className="far fa-check-circle" />
-                    Vacuum cleaning
+                    {about.subTitle2}
                   </li>
                   <li>
                     <i className="far fa-check-circle" />
-                    Interior wet cleaning
+                    {about.subTitle3}
                   </li>
                   <li>
                     <i className="far fa-check-circle" />
-                    Window wiping
+                    {about.subTitle4}
                   </li>
                 </ul>
               </div>
@@ -51,6 +55,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <Team />
       <Footer />
     </div>
   );
