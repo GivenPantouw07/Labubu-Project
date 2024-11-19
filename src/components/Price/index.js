@@ -1,8 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
+import { getDatabase, ref, onValue } from "firebase/database";
+import React, { useState, useEffect } from "react";
 
 const Price = () => {
+  const [price, setPrice] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const priceRef = ref(db, "price");
+    onValue(priceRef, (snapshot) => {
+      const data = snapshot.val();
+      setPrice(data);
+    });
+  }, []);
   return (
     <div>
       {/* Section header for the Price Page */}
@@ -10,12 +19,12 @@ const Price = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h2>Washing Plan</h2>
+              <h2>{price.navbar_Title}</h2>
             </div>
             <div className="col-12">
-              <Link to="/">Home</Link>
+              <Link to="/">{price.navbar_subTitle1}</Link>
               <span> / </span>
-              <Link to="/price">Price</Link>
+              <Link to="/price">{price.navbar_subTitle2}</Link>
             </div>
           </div>
         </div>
@@ -25,8 +34,8 @@ const Price = () => {
       <div className="price">
         <div className="container">
           <div className="section-header text-center">
-            <p>Washing Plan</p>
-            <h2>Choose Your Plan</h2>
+            <p>{price.subTitle}</p>
+            <h2>{price.Title}</h2>
           </div>
 
           <div className="row">
@@ -45,12 +54,15 @@ const Price = () => {
                   <i className="fas fa-arrow-down fa-2x"></i>
                 </div>
                 <div className="price-body">
-                  <Link className="btn btn-custom btn-large" to="/details/basic">
+                  <Link
+                    className="btn btn-custom btn-large"
+                    to="/details/basic"
+                  >
                     <div>
                       <h4>Details</h4>
                       <p>
-                        This plan includes seats washing, vacuum cleaning, and exterior cleaning. 
-                       
+                        This plan includes seats washing, vacuum cleaning, and
+                        exterior cleaning.
                       </p>
                     </div>
                   </Link>
@@ -73,12 +85,15 @@ const Price = () => {
                   <i className="fas fa-arrow-down fa-2x"></i>
                 </div>
                 <div className="price-body">
-                  <Link className="btn btn-custom btn-large" to="/details/premium">
+                  <Link
+                    className="btn btn-custom btn-large"
+                    to="/details/premium"
+                  >
                     <div>
                       <h4>Details</h4>
                       <p>
-                        This plan includes seats washing, vacuum cleaning, exterior cleaning, and interior wet cleaning. 
-                        
+                        This plan includes seats washing, vacuum cleaning,
+                        exterior cleaning, and interior wet cleaning.
                       </p>
                     </div>
                   </Link>
@@ -101,12 +116,16 @@ const Price = () => {
                   <i className="fas fa-arrow-down fa-2x"></i>
                 </div>
                 <div className="price-body">
-                  <Link className="btn btn-custom btn-large" to="/details/complex">
+                  <Link
+                    className="btn btn-custom btn-large"
+                    to="/details/complex"
+                  >
                     <div>
                       <h4>Details</h4>
                       <p>
-                        This plan covers all services, including seats washing, vacuum cleaning, 
-                        exterior cleaning, interior wet cleaning, window wiping, and free tire polish.
+                        This plan covers all services, including seats washing,
+                        vacuum cleaning, exterior cleaning, interior wet
+                        cleaning, window wiping, and free tire polish.
                       </p>
                     </div>
                   </Link>

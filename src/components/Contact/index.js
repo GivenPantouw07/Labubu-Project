@@ -1,7 +1,7 @@
 import { getDatabase, ref, onValue } from "firebase/database";
 import React, { useState, useEffect } from "react";
 
-function Contact() {
+const Contact = () => {
   const [contact, setContact] = useState({});
   useEffect(() => {
     const db = getDatabase();
@@ -107,6 +107,6 @@ function Contact() {
       {/* main header contact end */}
     </div>
   );
-}
+};
 
 export default Contact;
