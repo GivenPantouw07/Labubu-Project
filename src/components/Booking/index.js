@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
@@ -18,7 +18,6 @@ const Booking = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [additionalDetails, setAdditionalDetails] = useState("");
-  const [booking, setBooking] = useState([]);
   const [isBookingAdded, setIsBookingAdded] = useState(false);
   
 
@@ -69,23 +68,6 @@ const Booking = () => {
     });
   };
 
-  useEffect(() => {
-    const db = getDatabase();
-    const bookingRef = ref(db, "booking/");
-
-    onValue(bookingRef, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        const formattedBooking = Object.keys(data).map((key) => ({
-          id: key,
-          ...data[key],
-        }));
-        setBooking(formattedBooking); 
-      } else {
-        setBooking([]); 
-      }
-    });
-  }, []);
 
   const handleAddBooking = (event) => {
     event.preventDefault();
@@ -257,31 +239,6 @@ const Booking = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="container mt-5">
-        <h3>Daftar Booking</h3>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Nama</th>
-              <th>Email</th>
-              <th>Waktu Booking</th>
-              <th>Detail Tambahan</th>
-            </tr>
-          </thead>
-          <tbody>
-            {booking.map((item) => (
-              <tr key={item.id}>
-                <td>{item.username}</td>
-                <td>{item.email}</td>
-                <td>
-                  {dayjs(item.bookingTime).tz("Asia/Jakarta").format("DD-MM-YYYY HH:mm")}
-                </td>
-                <td>{item.additionalDetails}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
       </div>
     </div>
   );

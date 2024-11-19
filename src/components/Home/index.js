@@ -103,8 +103,8 @@ const Home = () => {
                     </ul>
                   </div>
                   <div className="price-footer">
-                    <Link className="btn btn-custom" to="/booking">
-                      Book Now
+                    <Link className="btn btn-custom" to="/price">
+                      See Details
                     </Link>
                   </div>
                 </div>
@@ -144,8 +144,8 @@ const Home = () => {
                     </ul>
                   </div>
                   <div className="price-footer">
-                    <Link className="btn btn-custom" to="/booking">
-                      Book Now
+                    <Link className="btn btn-custom" to="/price">
+                      See Details
                     </Link>
                   </div>
                 </div>
@@ -185,8 +185,8 @@ const Home = () => {
                     </ul>
                   </div>
                   <div className="price-footer">
-                    <Link className="btn btn-custom" to="/booking">
-                      Book Now
+                    <Link className="btn btn-custom" to="/price">
+                      See Details
                     </Link>
                   </div>
                 </div>
