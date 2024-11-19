@@ -1,5 +1,6 @@
-import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getDatabase, ref, onValue } from "firebase/database";
+import React, { useState, useEffect } from "react";
 
 const Booking = () => {
   const Navigate = useNavigate();
@@ -50,6 +51,16 @@ const Booking = () => {
     setError("");
     Navigate("/payment");
   };
+
+  const [booking, setBooking] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const bookingRef = ref(db, "booking");
+    onValue(bookingRef, (snapshot) => {
+      const data = snapshot.val();
+      setBooking(data);
+    });
+  }, []);
   return (
     <div>
       {/* Page Header */}
@@ -57,11 +68,11 @@ const Booking = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h2>Booking</h2>
+              <h2>{booking.navbarTitle}</h2>
             </div>
             <div className="col-12">
-              <Link to="/">Home</Link>
-              <Link to="/booking">Booking</Link>
+              <Link to="/">{booking.navbar_subTitle1}</Link>
+              <Link to="/booking">{booking.navbar_subTitle2}</Link>
             </div>
           </div>
         </div>
@@ -73,8 +84,8 @@ const Booking = () => {
           <div className="row">
             <div className="col-lg-7">
               <div className="section-header text-left">
-                <p>Labubu Locations</p>
-                <h2>Find Your Nearest Labubu Car Wash</h2>
+                <p>{booking.miniTitle}</p>
+                <h2>{booking.Title}</h2>
               </div>
               <div className="row">
                 {locations.map((locations, index) => (
@@ -85,7 +96,7 @@ const Booking = () => {
                         <h3>{locations.name}</h3>
                         <p>{locations.address}</p>
                         <p>
-                          <strong>Call:</strong>
+                          <strong>{booking.text}</strong>
                           {locations.phone}
                         </p>
                       </div>
@@ -98,7 +109,7 @@ const Booking = () => {
             {/* Booking Form */}
             <div className="col-lg-5">
               <div className="location-form">
-                <h3>Request a Car Wash</h3>
+                <h3>{booking.form_Title}</h3>
                 <form>
                   <div className="form-group">
                     <input
@@ -139,7 +150,7 @@ const Booking = () => {
                     className="btn btn-custom"
                     onClick={handlePayNow}
                   >
-                    Go to Pay
+                    {booking.button}
                   </button>
                 </form>
               </div>
