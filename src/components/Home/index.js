@@ -1,11 +1,21 @@
-import React from "react";
-import AboutImg from "../../assets/img/about.jpg";
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 import { Link } from "react-router-dom";
 import Service from "../Service";
 import Facts from "../Facts";
 import Footer from "../Footer";
 
 const Home = () => {
+  const [home, setHome] = useState({});
+
+  useEffect(() => {
+    const db = getDatabase();
+    const homeRef = ref(db, "home");
+    onValue(homeRef, (snapshot) => {
+      const data = snapshot.val();
+      setHome(data);
+    });
+  },[]);
   return (
     <div>
       <div className="about">
@@ -13,45 +23,36 @@ const Home = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="about-img">
-                <img src={AboutImg} alt="" />
+                <img src={`data:image/jpg;base64,${home.about_img}`} />
               </div>
             </div>
             <div className="col-lg-6">
               <div className="section-header text-left">
-                <p>About Us</p>
-                <h2>car washing and detailing</h2>
+                <p>{home.about_miniTitle}</p>
+                <h2>{home.about_Title}</h2>
               </div>
               <div className="about-content">
-                <p>
-                  Services are essential to maintaining the appearance and
-                  longevity of your vehicle. These services include thorough
-                  exterior cleaning, interior vacuuming, waxing, polishing, and
-                  restoring the car to a near showroom finish. Whether it’s
-                  removing stubborn dirt or enhancing the paint’s shine,
-                  professional detailing ensures your vehicle looks and feels
-                  brand new. Keep your car in top condition with regular washing
-                  and detailing tailored to your needs.
-                </p>
+                <p>{home.about_Paragraph}</p>
                 <ul>
                   <li>
                     <i className="far fa-check-circle" />
-                    Seats washing
+                    {home.about_Text1}
                   </li>
                   <li>
                     <i className="far fa-check-circle" />
-                    Vacuum cleaning
+                    {home.about_Text2}
                   </li>
                   <li>
                     <i className="far fa-check-circle" />
-                    Interior wet cleaning
+                    {home.about_Text3}
                   </li>
                   <li>
                     <i className="far fa-check-circle" />
-                    Window wiping
+                    {home.about_Text4}
                   </li>
                 </ul>
                 <Link className="btn btn-custom" to="/about">
-                  Learn More
+                  {home.about_Button}
                 </Link>
               </div>
             </div>
@@ -64,47 +65,47 @@ const Home = () => {
         <div className="price">
           <div className="container">
             <div className="section-header text-center">
-              <p>Washing Plan</p>
-              <h2>Choose Your Plan</h2>
+              <p>{home.price_miniTitle}</p>
+              <h2>{home.price_Title}</h2>
             </div>
             <div className="row">
               <div className="col-md-4">
                 <div className="price-item">
                   <div className="price-header">
-                    <h3>Basic Cleaning</h3>
+                    <h3>{home.price_subTitle1}</h3>
                     <h2>
-                      <span>$</span>
-                      <strong>25</strong>
-                      <span>.99</span>
+                      <span>{home.price_dollar}</span>
+                      <strong>{home.price_numberBeforecoma1}</strong>
+                      <span>{home.price_numberAftercoma}</span>
                     </h2>
                   </div>
                   <div className="price-body">
                     <ul>
                       <li>
                         <i className="far fa-check-circle" />
-                        Seats Washing
+                        {home.price_Text1}
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
-                        Vacuum Cleaning
+                        {home.price_Text2}
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
-                        Exterior Cleaning
+                        {home.price_Text3}
                       </li>
                       <li>
                         <i className="far fa-times-circle" />
-                        Interior Wet Cleaning
+                        {home.price_Text4}
                       </li>
                       <li>
                         <i className="far fa-times-circle" />
-                        Window Wiping
+                        {home.price_Text5}
                       </li>
                     </ul>
                   </div>
                   <div className="price-footer">
                     <Link className="btn btn-custom" to="/price">
-                      See Details
+                      {home.price_Button}
                     </Link>
                   </div>
                 </div>
@@ -112,40 +113,40 @@ const Home = () => {
               <div className="col-md-4">
                 <div className="price-item featured-item">
                   <div className="price-header">
-                    <h3>Premium Cleaning</h3>
+                    <h3>{home.price_subTitle2}</h3>
                     <h2>
-                      <span>$</span>
-                      <strong>35</strong>
-                      <span>.99</span>
+                      <span>{home.dollar}</span>
+                      <strong>{home.price_numberBeforecoma2}</strong>
+                      <span>{home.price_numberAftercoma}</span>
                     </h2>
                   </div>
                   <div className="price-body">
                     <ul>
                       <li>
                         <i className="far fa-check-circle" />
-                        Seats Washing
+                        {home.price_Text1}
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
-                        Vacuum Cleaning
+                        {home.price_Text2}
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
-                        Exterior Cleaning
+                        {home.price_Text3}
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
-                        Interior Wet Cleaning
+                        {home.price_Text4}
                       </li>
                       <li>
                         <i className="far fa-times-circle" />
-                        Window Wiping
+                        {home.price_Text5}
                       </li>
                     </ul>
                   </div>
                   <div className="price-footer">
                     <Link className="btn btn-custom" to="/price">
-                      See Details
+                      {home.price_Button}
                     </Link>
                   </div>
                 </div>
@@ -153,40 +154,40 @@ const Home = () => {
               <div className="col-md-4">
                 <div className="price-item">
                   <div className="price-header">
-                    <h3>Complex Cleaning</h3>
+                    <h3>{home.price_subTitle3}</h3>
                     <h2>
-                      <span>$</span>
-                      <strong>49</strong>
-                      <span>.99</span>
+                      <span>{home.dollar}</span>
+                      <strong>{home.price_numberBeforecoma3}</strong>
+                      <span>{home.price_numberAftercoma}</span>
                     </h2>
                   </div>
                   <div className="price-body">
                     <ul>
                       <li>
                         <i className="far fa-check-circle" />
-                        Seats Washing
+                        {home.price_Text1}
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
-                        Vacuum Cleaning
+                        {home.price_Text2}
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
-                        Exterior Cleaning
+                        {home.price_Text3}
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
-                        Interior Wet Cleaning
+                        {home.price_Text4}
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
-                        Window Wiping
+                        {home.price_Text5}
                       </li>
                     </ul>
                   </div>
                   <div className="price-footer">
                     <Link className="btn btn-custom" to="/price">
-                      See Details
+                      {home.price_Button}
                     </Link>
                   </div>
                 </div>

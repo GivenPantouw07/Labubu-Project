@@ -1,23 +1,43 @@
-import React from 'react';
+import React, {useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from "../Footer";
+import { CSSTransition } from 'react-transition-group';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 
 const Price = () => {
+  const [price, setPrice] = useState({});
+  const [contentVisible, setContentVisible] = useState(false);
+
+  useEffect(() => {
+    const db = getDatabase();
+    const priceRef = ref(db, "price");
+
+    onValue(priceRef, (snapshot) => {
+      const data = snapshot.val();
+      setPrice(data);
+
+      setContentVisible(true);
+      console.log("Content visible:", true);
+    });
+  }, []);
   return (
     <div>
       {/* Section header for the Price Page */}
       <div className="page-header">
         <div className="container">
+        <CSSTransition in={contentVisible} timeout={500} classNames="fade" unmountOnExit appear>
           <div className="row">
             <div className="col-12">
-              <h2>Washing Plan</h2>
+              <h2>{price.navbar_Title}</h2>
             </div>
             <div className="col-12">
-              <Link to="/">Home</Link>
+              <Link to="/">{price.navbar_subTitle1}</Link>
               <span> / </span>
-              <Link to="/price">Price</Link>
+              <Link to="/price">{price.navbar_subTitl2}</Link>
             </div>
           </div>
+        </CSSTransition>
         </div>
       </div>
 
@@ -25,8 +45,8 @@ const Price = () => {
       <div className="price">
         <div className="container">
           <div className="section-header text-center">
-            <p>Washing Plan</p>
-            <h2>Choose Your Plan</h2>
+            <p>{price.navbar_Title}</p>
+            <h2>{price.Title}</h2>
           </div>
 
           <div className="row">
@@ -116,6 +136,7 @@ const Price = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

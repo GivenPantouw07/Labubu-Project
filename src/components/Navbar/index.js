@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const Navbar = () => {
   const [blur, setBlur] = useState(false);
+  const [navbar, setNavbar] = useState({});
   const location = useLocation();
+
+
+  useEffect(() => {
+    const db = getDatabase();
+    const navbarRef = ref(db, "navbar");
+    onValue(navbarRef, (snapshot) => {
+      const data = snapshot.val();
+      setNavbar(data); 
+    });
+  }, []);
 
   useEffect(() => {
     function blurHandler() {
@@ -32,60 +44,53 @@ const Navbar = () => {
         <div className="container">
           <div
             className="collapse navbar-collapse justify-content-between"
-            id="navbarCollapse"
-          >
+            id="navbarCollapse">
             <div
               className="collapse navbar-collapse justify-content-between"
-              id="navbarCollapse"
-            >
+              id="navbarCollapse">
+
               <div className="navbar-nav">
                 <Link
                   to="/"
                   className={`nav-item nav-link ${
                     location.pathname === "/" ? "active" : ""
-                  }`}
-                >
-                  Home
+                  }`}>
+                  {navbar.Text1}
                 </Link>
                 <Link
                   to="/about"
                   className={`nav-item nav-link ${
                     location.pathname === "/about" ? "active" : ""
-                  }`}
-                >
-                  About
+                  }`}>
+                  {navbar.Text2}
                 </Link>
                 <Link
                   to="/price"
                   className={`nav-item nav-link ${
                     location.pathname === "/price" ? "active" : ""
-                  }`}
-                >
-                  Price
+                  }`}>
+                  {navbar.Text3}
                 </Link>
                 <Link
                   to="/booking"
                   className={`nav-item nav-link ${
                     location.pathname === "/booking" ? "active" : ""
-                  }`}
-                >
-                  Booking
+                  }`}>
+                  {navbar.Text4}
                 </Link>
                 <Link
                   to="/payment"
                   className={`nav-item nav-link ${
                     location.pathname === "/payment" ? "active" : ""
-                  }`}
-                >
-                  Payment
+                  }`}>
+                  {navbar.Text5}
                 </Link>
                 <Link
                   to="/contact"
                   className={`nav-item nav-link ${
                     location.pathname === "/contact" ? "active" : ""
-                  }`}
-                >
-                  Contact
+                  }`}>
+                  {navbar.Text6}
                 </Link>
               </div>
             </div>
@@ -100,7 +105,7 @@ const Navbar = () => {
                 margin: "0px",
               }}
             >
-              Car
+              {navbar.Title_1}
             </div>
             <div
               style={{
@@ -110,7 +115,7 @@ const Navbar = () => {
                 fontSize: "38px",
               }}
             >
-              Wash
+              {navbar.Title_2}
             </div>
           </div>
         </div>

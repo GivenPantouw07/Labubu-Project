@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getDatabase, ref, set } from "firebase/database";
+import { FadeLoader } from "react-spinners";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+import { CSSTransition } from "react-transition-group";
 
 
 
@@ -19,6 +21,10 @@ const Booking = () => {
   const [email, setEmail] = useState("");
   const [additionalDetails, setAdditionalDetails] = useState("");
   const [isBookingAdded, setIsBookingAdded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showContent, setShowContent] = useState(true);
+  const [booking, setBooking] = useState({});
+
   
 
   const locations = [
@@ -43,6 +49,15 @@ const Booking = () => {
       phone: "+62 819 8765 4321",
     },
   ];
+  
+  useEffect(() => {
+    const db = getDatabase();
+    const bookingRef = ref(db, "booking");
+    onValue(bookingRef, (snapshot) => {
+      const data = snapshot.val();
+      setBooking(data);
+    });
+  }, []);
 
   const writeBookingData = (name, email, dateTime, details) => {
     const db = getDatabase();
@@ -56,24 +71,28 @@ const Booking = () => {
   
     const bookingRef = ref(db, `/booking/${readableKey}`);
   
-    set(bookingRef, {
+    return set(bookingRef, {
       username: name,
       email: email,
       bookingTime: formattedDateTime, 
       additionalDetails: details,
-    }).then(() => {
+    })
+    .then(() => {
       console.log("Booking data has been saved.");
-    }).catch((error) => {
+    })
+    .catch((error) => {
       console.error("Error writing booking data: ", error);
     });
   };
 
 
-  const handleAddBooking = (event) => {
+  const handleAddBooking = async(event) => {
     event.preventDefault();
 
     const selectedDay = dayjs(selectedDateTime).day();
     const selectedTime = dayjs(selectedDateTime).hour();
+
+    setError("");
 
     if (selectedDay === 0 || selectedDay === 6) {
       setError("Labubu Car Wash is closed on weekends.");
@@ -91,15 +110,26 @@ const Booking = () => {
       setError("All fields are required.");
       return;
     }
-    writeBookingData(name, email, selectedDateTime, additionalDetails);
-    setIsBookingAdded(true);
+    
+    setIsLoading(true);
 
-    setError("");
+    try {
+      await writeBookingData(name, email, selectedDateTime, additionalDetails);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    setName("");
-    setEmail("");
-    setSelectedDateTime("");
-    setAdditionalDetails("");
+      setIsBookingAdded(true);
+      console.log("Booking added successfully");
+
+      setName("");
+      setEmail("");
+      setSelectedDateTime("");
+      setAdditionalDetails("");
+      } catch (error) {
+        console.error("Error adding booking: ", error);
+        setError("Failed to add booking. Please try again.");
+      } finally {
+        setIsLoading(false);
+      }
   };
 
   const handlePayNow = (event) => {
@@ -119,38 +149,43 @@ const Booking = () => {
       );
       return;
     }
-
-    setError("");
-
-
     Navigate("/payment");
   };
 
   return (
     <div>
-      {/* Page Header */}
       <div className="page-header">
         <div className="container">
+        <CSSTransition in={setShowContent} timeout={500} classNames="fade" unmountOnExit appear>
           <div className="row">
             <div className="col-12">
-              <h2>Booking</h2>
+              <h2>{booking.navbarTitle}</h2>
             </div>
             <div className="col-12">
-              <Link to="/">Home</Link>
-              <Link to="/booking">Booking</Link>
+              <Link to="/">{booking.navbar_subTitle1}</Link>
+              <Link to="/booking">{booking.navbar_subTitle2}</Link>
             </div>
           </div>
+        </CSSTransition>
         </div>
       </div>
 
       {/* Location Section */}
       <div className="location">
+        {isLoading ? (
+          <div className="loading-overlay">
+            <div className="loading-box">
+              <FadeLoader color="#36d7b7" loading={isLoading} size={100} />
+              <p>Loading... Please wait.</p>
+            </div>
+          </div>
+        ) : (
         <div className="container">
           <div className="row">
             <div className="col-lg-7">
               <div className="section-header text-left">
-                <p>Labubu Locations</p>
-                <h2>Find Your Nearest Labubu Car Wash</h2>
+                <p>{booking.miniTitle}</p>
+                <h2>{booking.Title}</h2>
               </div>
               <div className="row">
                 {locations.map((locations, index) => (
@@ -161,7 +196,7 @@ const Booking = () => {
                         <h3>{locations.name}</h3>
                         <p>{locations.address}</p>
                         <p>
-                          <strong>Call:</strong>
+                          <strong>{booking.text}</strong>
                           {locations.phone}
                         </p>
                       </div>
@@ -174,7 +209,8 @@ const Booking = () => {
             {/* Booking Form */}
             <div className="col-lg-5">
               <div className="location-form">
-                <h3>Request a Car Wash</h3>
+                <h3>{booking.form_Title}</h3>
+
                 <form>
                   <div className="form-group">
                     <input
@@ -222,7 +258,7 @@ const Booking = () => {
                       className="btn btn-custom mb-3"
                       onClick={handleAddBooking}
                     >
-                      Add
+                      {booking.button_Add}
                     </button>
 
                     <button
@@ -231,7 +267,7 @@ const Booking = () => {
                       onClick={handlePayNow}
                       disabled={!isBookingAdded}
                     >
-                      Go to Pay
+                      {booking.button_gtp}
                     </button>
                   </div>
                 </form>
@@ -239,9 +275,9 @@ const Booking = () => {
             </div>
           </div>
         </div>
+        )}
       </div>
     </div>
   );
 };
-
 export default Booking;
