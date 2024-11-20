@@ -1,7 +1,3 @@
-import Team2 from "../../../assets/img/given.jpeg";
-import Team3 from "../../../assets/img/mayjen.jpg";
-import Team4 from "../../../assets/img/elsha.jpeg";
-import Team5 from "../../../assets/img/team-4.jpg";
 import { getDatabase, ref, onValue } from "firebase/database";
 import React, { useState, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
@@ -52,12 +48,12 @@ const Team = () => {
                   <div className="team-img">
                     <img
                       src={`data:image/jpg;base64,${team.team1}`}
-                      alt="Donald John, Engineer"
+                      alt="Gill Erza Tangka"
                     />
                   </div>
                   <div className="team-text">
-                    <h2>Gill Erza Tangka</h2>
-                    <p>Engineer</p>
+                    <h2>{team.Name1}</h2>
+                    <p>{team.Job1}</p>
                     <div className="team-social">
                       <a
                         href="https://twitter.com/"
@@ -95,11 +91,11 @@ const Team = () => {
               <div className="col-lg-3 col-md-6">
                 <div className="team-item">
                   <div className="team-img">
-                    <img src={Team2} alt="Given Azarya Pantouw, Engineer" />
+                    <img src={`data:image/jpg;base64,${team.team2}`} alt="Given Azarya Pantouw, Engineer" />
                   </div>
                   <div className="team-text">
-                    <h2>Given Azarya Pantouw</h2>
-                    <p>Engineer</p>
+                    <h2>{team.Name2}</h2>
+                    <p>{team.Job1}</p>
                     <div className="team-social">
                       <a
                         href="https://twitter.com/"
@@ -138,13 +134,13 @@ const Team = () => {
                 <div className="team-item">
                   <div className="team-img">
                     <img
-                      src={Team3}
+                      src={`data:image/jpg;base64,${team.team3}`}
                       alt="Mayjen Mclearen Putra Rarentewan, Worker"
                     />
                   </div>
                   <div className="team-text">
-                    <h2>Mayjen Mclearen Putra Rarentewan</h2>
-                    <p>Worker</p>
+                    <h2>{team.Name3}</h2>
+                    <p>{team.Job1}</p>
                     <div className="team-social">
                       <a
                         href="https://twitter.com/"
@@ -182,11 +178,11 @@ const Team = () => {
               <div className="col-lg-3 col-md-6">
                 <div className="team-item">
                   <div className="team-img">
-                    <img src={Team4} alt="Elsha Tambuwun, Worker" />
+                    <img src={`data:image/jpg;base64, ${team.team4}`} alt="Elsha Tambuwun, Worker" />
                   </div>
                   <div className="team-text">
-                    <h2>Elsha Tambuwun</h2>
-                    <p>Worker</p>
+                    <h2>{team.Name4}</h2>
+                    <p>{team.Job2}</p>
                     <div className="team-social">
                       <a
                         href="https://twitter.com/"
@@ -224,11 +220,11 @@ const Team = () => {
               <div className="col-lg-3 col-md-6">
                 <div className="team-item">
                   <div className="team-img">
-                    <img src={Team5} alt="Vallerie Joanna Salindeho, Worker" />
+                    <img src={`data:image/jpg;base64,${team.team5}`} alt="Vallerie Joanna Salindeho, Worker" />
                   </div>
                   <div className="team-text">
-                    <h2>Vallerie Joanna Salindeho</h2>
-                    <p>Worker</p>
+                    <h2>{team.Name5}</h2>
+                    <p>{team.Job2}</p>
                     <div className="team-social">
                       <a
                         href="https://twitter.com/jamesalien"

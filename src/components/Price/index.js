@@ -69,8 +69,8 @@ const Price = () => {
                     <div>
                       <h4>Details</h4>
                       <p>
-                        This plan includes seats washing, vacuum cleaning, and exterior cleaning. 
-                       
+                        This plan includes seats washing, vacuum cleaning, and
+                        exterior cleaning.
                       </p>
                     </div>
                   </Link>
@@ -97,8 +97,8 @@ const Price = () => {
                     <div>
                       <h4>Details</h4>
                       <p>
-                        This plan includes seats washing, vacuum cleaning, exterior cleaning, and interior wet cleaning. 
-                        
+                        This plan includes seats washing, vacuum cleaning,
+                        exterior cleaning, and interior wet cleaning.
                       </p>
                     </div>
                   </Link>
@@ -125,8 +125,9 @@ const Price = () => {
                     <div>
                       <h4>Details</h4>
                       <p>
-                        This plan covers all services, including seats washing, vacuum cleaning, 
-                        exterior cleaning, interior wet cleaning, window wiping, and free tire polish.
+                        This plan covers all services, including seats washing,
+                        vacuum cleaning, exterior cleaning, interior wet
+                        cleaning, window wiping, and free tire polish.
                       </p>
                     </div>
                   </Link>

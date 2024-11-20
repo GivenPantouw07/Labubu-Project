@@ -18,6 +18,9 @@ const Home = () => {
   },[]);
   return (
     <div>
+      
+      <div className="carousel"></div>
+
       <div className="about">
         <div className="container">
           <div className="row align-items-center">
@@ -30,6 +33,7 @@ const Home = () => {
               <div className="section-header text-left">
                 <p>{home.about_miniTitle}</p>
                 <h2>{home.about_Title}</h2>
+
               </div>
               <div className="about-content">
                 <p>{home.about_Paragraph}</p>
@@ -92,14 +96,17 @@ const Home = () => {
                       <li>
                         <i className="far fa-check-circle" />
                         {home.price_Text3}
+      
                       </li>
                       <li>
                         <i className="far fa-times-circle" />
+                      
                         {home.price_Text4}
                       </li>
                       <li>
                         <i className="far fa-times-circle" />
                         {home.price_Text5}
+                    
                       </li>
                     </ul>
                   </div>
@@ -114,6 +121,7 @@ const Home = () => {
                 <div className="price-item featured-item">
                   <div className="price-header">
                     <h3>{home.price_subTitle2}</h3>
+                    
                     <h2>
                       <span>{home.dollar}</span>
                       <strong>{home.price_numberBeforecoma2}</strong>
@@ -125,22 +133,27 @@ const Home = () => {
                       <li>
                         <i className="far fa-check-circle" />
                         {home.price_Text1}
+                    
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
                         {home.price_Text2}
+                    
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
                         {home.price_Text3}
+                    
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
                         {home.price_Text4}
+                  
                       </li>
                       <li>
                         <i className="far fa-times-circle" />
                         {home.price_Text5}
+              
                       </li>
                     </ul>
                   </div>
@@ -155,6 +168,7 @@ const Home = () => {
                 <div className="price-item">
                   <div className="price-header">
                     <h3>{home.price_subTitle3}</h3>
+              
                     <h2>
                       <span>{home.dollar}</span>
                       <strong>{home.price_numberBeforecoma3}</strong>
@@ -166,22 +180,27 @@ const Home = () => {
                       <li>
                         <i className="far fa-check-circle" />
                         {home.price_Text1}
+              
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
                         {home.price_Text2}
+                
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
                         {home.price_Text3}
+               
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
                         {home.price_Text4}
+              
                       </li>
                       <li>
                         <i className="far fa-check-circle" />
                         {home.price_Text5}
+                
                       </li>
                     </ul>
                   </div>

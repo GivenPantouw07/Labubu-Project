@@ -46,7 +46,7 @@ const About = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
-              <div className="about-img">              
+              <div className="about-img">
                 <img src={`data:image/jpg;base64,${about.img1}`} />
               </div>
             </div>
