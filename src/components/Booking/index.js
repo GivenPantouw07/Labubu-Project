@@ -7,11 +7,8 @@ import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import { CSSTransition } from "react-transition-group";
 
-
-
 dayjs.extend(utc);
 dayjs.extend(timezone);
-
 
 const Booking = () => {
   const Navigate = useNavigate();
@@ -22,10 +19,8 @@ const Booking = () => {
   const [additionalDetails, setAdditionalDetails] = useState("");
   const [isBookingAdded, setIsBookingAdded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [showContent, setShowContent] = useState(true);
+  const [setShowContent] = useState(true);
   const [booking, setBooking] = useState({});
-
-  
 
   const locations = [
     {
@@ -49,44 +44,43 @@ const Booking = () => {
       phone: "+62 819 8765 4321",
     },
   ];
-  
+
   useEffect(() => {
     const db = getDatabase();
     const bookingRef = ref(db, "booking");
     onValue(bookingRef, (snapshot) => {
       const data = snapshot.val();
       setBooking(data);
-    });
-  }, []);
+    });
+  }, []);
 
   const writeBookingData = (name, email, dateTime, details) => {
     const db = getDatabase();
-  
+
     const formattedDateTime = dayjs(dateTime)
       .tz("Asia/Jakarta")
       .format("YYYY-MM-DD HH:mm:ss");
-  
+
     const timestamp = dayjs().format("YYYYMMDDHHmmss");
     const readableKey = `${name.replace(/\s+/g, "_")}_${timestamp}`;
-  
+
     const bookingRef = ref(db, `/booking/${readableKey}`);
-  
+
     return set(bookingRef, {
       username: name,
       email: email,
-      bookingTime: formattedDateTime, 
+      bookingTime: formattedDateTime,
       additionalDetails: details,
     })
-    .then(() => {
-      console.log("Booking data has been saved.");
-    })
-    .catch((error) => {
-      console.error("Error writing booking data: ", error);
-    });
+      .then(() => {
+        console.log("Booking data has been saved.");
+      })
+      .catch((error) => {
+        console.error("Error writing booking data: ", error);
+      });
   };
 
-
-  const handleAddBooking = async(event) => {
+  const handleAddBooking = async (event) => {
     event.preventDefault();
 
     const selectedDay = dayjs(selectedDateTime).day();
@@ -110,7 +104,7 @@ const Booking = () => {
       setError("All fields are required.");
       return;
     }
-    
+
     setIsLoading(true);
 
     try {
@@ -124,12 +118,12 @@ const Booking = () => {
       setEmail("");
       setSelectedDateTime("");
       setAdditionalDetails("");
-      } catch (error) {
-        console.error("Error adding booking: ", error);
-        setError("Failed to add booking. Please try again.");
-      } finally {
-        setIsLoading(false);
-      }
+    } catch (error) {
+      console.error("Error adding booking: ", error);
+      setError("Failed to add booking. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handlePayNow = (event) => {
@@ -156,17 +150,23 @@ const Booking = () => {
     <div>
       <div className="page-header">
         <div className="container">
-        <CSSTransition in={setShowContent} timeout={500} classNames="fade" unmountOnExit appear>
-          <div className="row">
-            <div className="col-12">
-              <h2>{booking.navbarTitle}</h2>
+          <CSSTransition
+            in={setShowContent}
+            timeout={500}
+            classNames="fade"
+            unmountOnExit
+            appear
+          >
+            <div className="row">
+              <div className="col-12">
+                <h2>{booking.navbarTitle}</h2>
+              </div>
+              <div className="col-12">
+                <Link to="/">{booking.navbar_subTitle1}</Link>
+                <Link to="/booking">{booking.navbar_subTitle2}</Link>
+              </div>
             </div>
-            <div className="col-12">
-              <Link to="/">{booking.navbar_subTitle1}</Link>
-              <Link to="/booking">{booking.navbar_subTitle2}</Link>
-            </div>
-          </div>
-        </CSSTransition>
+          </CSSTransition>
         </div>
       </div>
 
@@ -180,101 +180,101 @@ const Booking = () => {
             </div>
           </div>
         ) : (
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-7">
-              <div className="section-header text-left">
-                <p>{booking.miniTitle}</p>
-                <h2>{booking.Title}</h2>
-              </div>
-              <div className="row">
-                {locations.map((locations, index) => (
-                  <div className="col-md-6" key={index}>
-                    <div className="location-item">
-                      <i className="fa fa-map-marker-alt" />
-                      <div className="location-text">
-                        <h3>{locations.name}</h3>
-                        <p>{locations.address}</p>
-                        <p>
-                          <strong>{booking.text}</strong>
-                          {locations.phone}
-                        </p>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-7">
+                <div className="section-header text-left">
+                  <p>{booking.miniTitle}</p>
+                  <h2>{booking.Title}</h2>
+                </div>
+                <div className="row">
+                  {locations.map((locations, index) => (
+                    <div className="col-md-6" key={index}>
+                      <div className="location-item">
+                        <i className="fa fa-map-marker-alt" />
+                        <div className="location-text">
+                          <h3>{locations.name}</h3>
+                          <p>{locations.address}</p>
+                          <p>
+                            <strong>{booking.text}</strong>
+                            {locations.phone}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Booking Form */}
-            <div className="col-lg-5">
-              <div className="location-form">
-                <h3>{booking.form_Title}</h3>
+              {/* Booking Form */}
+              <div className="col-lg-5">
+                <div className="location-form">
+                  <h3>{booking.form_Title}</h3>
 
-                <form>
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Name"
-                      required
-                      value={name} 
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Email"
-                      required
-                      value={email} 
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="datetime-local"
-                      className="form-control"
-                      placeholder="Preferred Time"
-                      required
-                      value={selectedDateTime}
-                      onChange={(e) => setSelectedDateTime(e.target.value)}
-                    />
-                  </div>
-                  {error && <p style={{ color: "white" }}>{error}</p>}
-                  <div className="form-group">
-                    <textarea
-                      className="form-control"
-                      placeholder="Additional Details"
-                      rows="3"
-                      value={additionalDetails} 
-                      onChange={(e) => setAdditionalDetails(e.target.value)}
-                    ></textarea>
-                  </div>
-                  <div className="form-buttons">
-                    <button
-                      type="submit"
-                      className="btn btn-custom mb-3"
-                      onClick={handleAddBooking}
-                    >
-                      {booking.button_Add}
-                    </button>
+                  <form>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Name"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="email"
+                        className="form-control"
+                        placeholder="Email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="datetime-local"
+                        className="form-control"
+                        placeholder="Preferred Time"
+                        required
+                        value={selectedDateTime}
+                        onChange={(e) => setSelectedDateTime(e.target.value)}
+                      />
+                    </div>
+                    {error && <p style={{ color: "white" }}>{error}</p>}
+                    <div className="form-group">
+                      <textarea
+                        className="form-control"
+                        placeholder="Additional Details"
+                        rows="3"
+                        value={additionalDetails}
+                        onChange={(e) => setAdditionalDetails(e.target.value)}
+                      ></textarea>
+                    </div>
+                    <div className="form-buttons">
+                      <button
+                        type="submit"
+                        className="btn btn-custom mb-3"
+                        onClick={handleAddBooking}
+                      >
+                        {booking.button_Add}
+                      </button>
 
-                    <button
-                      type="submit"
-                      className="btn btn-custom"
-                      onClick={handlePayNow}
-                      disabled={!isBookingAdded}
-                    >
-                      {booking.button_gtp}
-                    </button>
-                  </div>
-                </form>
+                      <button
+                        type="submit"
+                        className="btn btn-custom"
+                        onClick={handlePayNow}
+                        disabled={!isBookingAdded}
+                      >
+                        {booking.button_gtp}
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         )}
       </div>
     </div>

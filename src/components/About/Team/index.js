@@ -91,7 +91,10 @@ const Team = () => {
               <div className="col-lg-3 col-md-6">
                 <div className="team-item">
                   <div className="team-img">
-                    <img src={`data:image/jpg;base64,${team.team2}`} alt="Given Azarya Pantouw, Engineer" />
+                    <img
+                      src={`data:image/jpg;base64,${team.team2}`}
+                      alt="Given Azarya Pantouw, Engineer"
+                    />
                   </div>
                   <div className="team-text">
                     <h2>{team.Name2}</h2>
@@ -178,7 +181,10 @@ const Team = () => {
               <div className="col-lg-3 col-md-6">
                 <div className="team-item">
                   <div className="team-img">
-                    <img src={`data:image/jpg;base64, ${team.team4}`} alt="Elsha Tambuwun, Worker" />
+                    <img
+                      src={`data:image/jpg;base64, ${team.team4}`}
+                      alt="Elsha Tambuwun, Worker"
+                    />
                   </div>
                   <div className="team-text">
                     <h2>{team.Name4}</h2>
@@ -220,7 +226,10 @@ const Team = () => {
               <div className="col-lg-3 col-md-6">
                 <div className="team-item">
                   <div className="team-img">
-                    <img src={`data:image/jpg;base64,${team.team5}`} alt="Vallerie Joanna Salindeho, Worker" />
+                    <img
+                      src={`data:image/jpg;base64,${team.team5}`}
+                      alt="Vallerie Joanna Salindeho, Worker"
+                    />
                   </div>
                   <div className="team-text">
                     <h2>{team.Name5}</h2>
