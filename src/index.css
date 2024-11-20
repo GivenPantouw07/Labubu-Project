@@ -1831,6 +1831,9 @@ a:focus {
   margin-top: 45px;
   padding-top: 90px;
   background: #202c45;
+  text-align: center;
+  justify-content: center;
+  display: flex; flex-direction: column; align-items: center;
 }
 
 .footer .footer-contact,
@@ -1839,6 +1842,7 @@ a:focus {
   position: relative;
   margin-bottom: 45px;
   color: #ffffff;
+  max-width: 1140px; width: 100%;
 }
 
 .footer .footer-contact h2,
@@ -1864,21 +1868,25 @@ a:focus {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin-right: 10px;
+  text-align: center;
 }
 
 .footer .footer-link a:hover {
   color: #e81c2e;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .footer .footer-contact p i {
   width: 25px;
+  text-align: center;
 }
 
 .footer .footer-social {
   position: relative;
   margin-top: 20px;
   display: flex;
+  justify-content: center;
 }
 
 .footer .footer-social a {
@@ -1956,3 +1964,4 @@ a:focus {
 .footer .copyright p a:hover {
   color: #ffffff;
 }
+/* penambahan styling footer */

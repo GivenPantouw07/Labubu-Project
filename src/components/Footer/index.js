@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
               <address>
                 <p>
                   <i className="fa fa-map-marker-alt" />
-                  123 Street, New York, USA
+                  Jalan Sudirman No. 10, Jakarta
                 </p>
                 <p>
                   <i className="fa fa-phone-alt" />
@@ -19,7 +20,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <i className="fa fa-envelope" />
-                  <a href="mailto:info@example.com">info@example.com</a>
+                  <a href="mailto:info@example.com" style={{ color: 'white' }}>LabubuCW@gmail.com</a>
                 </p>
               </address>
               <div className="footer-social">
@@ -69,11 +70,9 @@ const Footer = () => {
           <div className="col-lg-3 col-md-6">
             <div className="footer-link">
               <h2>Popular Links</h2>
-              <a href="/about-us">About Us</a>
-              <a href="/contact-us">Contact Us</a>
-              <a href="/services">Our Services</a>
-              <a href="/service-points">Service Points</a>
-              <a href="/pricing-plan">Pricing Plan</a>
+              <Link to="/about">About Us</Link>
+              <Link to="/contact">Contact Us</Link>
+              <Link to="/price">Pricing Plan</Link>
             </div>
           </div>
         </div>

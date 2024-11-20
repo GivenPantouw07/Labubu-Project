@@ -1,10 +1,25 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getDatabase, ref, set } from "firebase/database";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 
 const Booking = () => {
   const Navigate = useNavigate();
   const [selectedDateTime, setSelectedDateTime] = useState("");
   const [error, setError] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [additionalDetails, setAdditionalDetails] = useState("");
+  const [isBookingAdded, setIsBookingAdded] = useState(false);
+  
 
   const locations = [
     {
@@ -29,11 +44,69 @@ const Booking = () => {
     },
   ];
 
+  const writeBookingData = (name, email, dateTime, details) => {
+    const db = getDatabase();
+  
+    const formattedDateTime = dayjs(dateTime)
+      .tz("Asia/Jakarta")
+      .format("YYYY-MM-DD HH:mm:ss");
+  
+    const timestamp = dayjs().format("YYYYMMDDHHmmss");
+    const readableKey = `${name.replace(/\s+/g, "_")}_${timestamp}`;
+  
+    const bookingRef = ref(db, `/booking/${readableKey}`);
+  
+    set(bookingRef, {
+      username: name,
+      email: email,
+      bookingTime: formattedDateTime, 
+      additionalDetails: details,
+    }).then(() => {
+      console.log("Booking data has been saved.");
+    }).catch((error) => {
+      console.error("Error writing booking data: ", error);
+    });
+  };
+
+
+  const handleAddBooking = (event) => {
+    event.preventDefault();
+
+    const selectedDay = dayjs(selectedDateTime).day();
+    const selectedTime = dayjs(selectedDateTime).hour();
+
+    if (selectedDay === 0 || selectedDay === 6) {
+      setError("Labubu Car Wash is closed on weekends.");
+      return;
+    }
+
+    if (selectedTime < 8 || selectedTime >= 17) {
+      setError(
+        "Please select a time between 8:00 AM and 5:00 PM, Monday to Friday."
+      );
+      return;
+    }
+
+    if (!name || !email || !selectedDateTime) {
+      setError("All fields are required.");
+      return;
+    }
+    writeBookingData(name, email, selectedDateTime, additionalDetails);
+    setIsBookingAdded(true);
+
+    setError("");
+
+    setName("");
+    setEmail("");
+    setSelectedDateTime("");
+    setAdditionalDetails("");
+  };
+
   const handlePayNow = (event) => {
     event.preventDefault();
 
-    const selectedDay = new Date(selectedDateTime).getDay();
-    const selectedTime = new Date(selectedDateTime).getHours();
+    const selectedDay = dayjs(selectedDateTime).day();
+    const selectedTime = dayjs(selectedDateTime).hour();
 
     if (selectedDay === 0 || selectedDay === 6) {
       setError("Labubu Car Wash is closed on weekends.");
@@ -48,8 +121,11 @@ const Booking = () => {
     }
 
     setError("");
+
+
     Navigate("/payment");
   };
+
   return (
     <div>
       {/* Page Header */}
@@ -106,6 +182,8 @@ const Booking = () => {
                       className="form-control"
                       placeholder="Name"
                       required
+                      value={name} 
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </div>
                   <div className="form-group">
@@ -114,6 +192,8 @@ const Booking = () => {
                       className="form-control"
                       placeholder="Email"
                       required
+                      value={email} 
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className="form-group">
@@ -132,15 +212,28 @@ const Booking = () => {
                       className="form-control"
                       placeholder="Additional Details"
                       rows="3"
+                      value={additionalDetails} 
+                      onChange={(e) => setAdditionalDetails(e.target.value)}
                     ></textarea>
                   </div>
-                  <button
-                    type="submit"
-                    className="btn btn-custom"
-                    onClick={handlePayNow}
-                  >
-                    Go to Pay
-                  </button>
+                  <div className="form-buttons">
+                    <button
+                      type="submit"
+                      className="btn btn-custom mb-3"
+                      onClick={handleAddBooking}
+                    >
+                      Add
+                    </button>
+
+                    <button
+                      type="submit"
+                      className="btn btn-custom"
+                      onClick={handlePayNow}
+                      disabled={!isBookingAdded}
+                    >
+                      Go to Pay
+                    </button>
+                  </div>
                 </form>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 function Payment() {
   const [selectedBank, setSelectedBank] = useState('');
@@ -34,8 +35,8 @@ function Payment() {
               <h2>Payment</h2>
             </div>
             <div className="col-12">
-              <a href="/">Home</a>
-              <a href="/payment">Payment</a>
+              <Link to="/">Home</Link>
+              <Link to="/payment">Payment</Link>
             </div>
           </div>
         </div>

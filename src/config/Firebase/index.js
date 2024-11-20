@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getDatabase, ref, onValue } from "firebase/database";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -15,5 +15,8 @@ const firebaseConfig = {
   appId: "1:981328590226:web:362841865cdc2152d67d4b",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+const database = getDatabase(app);
+
+export { database, ref, onValue };

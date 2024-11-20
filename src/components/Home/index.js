@@ -1,4 +1,3 @@
-import AboutImg from "../../assets/img/about.jpg";
 import { Link } from "react-router-dom";
 import Service from "../Service";
 import Facts from "../Facts";
@@ -110,7 +109,7 @@ const Home = () => {
                     </ul>
                   </div>
                   <div className="price-footer">
-                    <Link className="btn btn-custom" to="/booking">
+                    <Link className="btn btn-custom" to="/price">
                       {home.price_Button}
                     </Link>
                   </div>
@@ -151,7 +150,7 @@ const Home = () => {
                     </ul>
                   </div>
                   <div className="price-footer">
-                    <Link className="btn btn-custom" to="/booking">
+                    <Link className="btn btn-custom" to="/price">
                       {home.price_Button}
                     </Link>
                   </div>
@@ -192,7 +191,8 @@ const Home = () => {
                     </ul>
                   </div>
                   <div className="price-footer">
-                    <Link className="btn btn-custom" to="/booking">
+                      
+                    <Link className="btn btn-custom" to="/price">
                       {home.price_Button}
                     </Link>
                   </div>

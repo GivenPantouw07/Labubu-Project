@@ -1,6 +1,6 @@
 import { getDatabase, ref, onValue } from "firebase/database";
 import React, { useState, useEffect } from "react";
-
+  
 const Team = () => {
   const [team, setTeam] = useState({});
   useEffect(() => {
