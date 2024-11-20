@@ -12,9 +12,10 @@ const Contact = () => {
     useEffect(() => {
         const db = getDatabase();
         const contactRef = ref(db, "contact");
-      onValue(contactRef, (snapshot) => {
-        const data = snapshot.val();
-        setContact(data);
+
+        onValue(contactRef, (snapshot) => {
+            const data = snapshot.val();
+            setContact(data);
 
         setHeaderVisible(true);
         setTimeout(() => {
